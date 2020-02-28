@@ -8,19 +8,24 @@ Window {
     height: 480
     title: qsTr("Calendar")
 
-
-//    Rectangle {
-//        id: leftRect
-//        width: parent.width / 8
-//        height: parent.height
-//        color: "Red"
-//    }
-
     Rectangle {
         id: graphSidebar
         width: parent.width * (2/10)
         height: parent.height
         color: "#1aff01"
+
+        Text {
+            id: moodTitle
+            width: parent.width
+            height: parent.height / 10
+
+            horizontalAlignment: Text.AlignHCenter
+            anchors.left: parent.left
+
+            text: qsTr("Monthly Progress")
+            font.pointSize: parent.width / 8
+            wrapMode: Text.WordWrap
+        }
     }
 
 
@@ -30,14 +35,5 @@ Window {
 
         anchors.right: parent.right
 
-
-
-//        Button {
-//            x: parent.width / 7
-//            text: "Button"
-
-//            width: parent.width / 7
-//            height: parent.width / 18
-//        }
     }
 }
