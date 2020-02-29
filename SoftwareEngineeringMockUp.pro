@@ -28,3 +28,11 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    emoticons/anger.png \
+    emoticons/fearful.png \
+    emoticons/happy.png \
+    emoticons/joy.png \
+    emoticons/sad.png \
+    emoticons/worry.png
