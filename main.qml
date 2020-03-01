@@ -30,6 +30,10 @@ Window {
             wrapMode: Text.WordWrap
         }
 
+        Image {
+
+        }
+
 
     }
 
