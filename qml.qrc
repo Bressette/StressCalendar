@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>emoticons/anger.png</file>
+        <file>emoticons/fearful.png</file>
+        <file>emoticons/happy.png</file>
+        <file>emoticons/joy.png</file>
+        <file>emoticons/sad.png</file>
+        <file>emoticons/worry.png</file>
     </qresource>
 </RCC>
