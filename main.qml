@@ -9,40 +9,49 @@ Window {
     height: 480
     title: qsTr("Calendar")
 
-    //rectangle used to create the left sidebar
-    Rectangle {
-        id: graphSidebar
-        width: parent.width * (2/10)
+
+    //rectangle used to create the main screen
+    Rectangle
+    {
+        width: parent.width
         height: parent.height
-        color: "#1aff01"
+        visible: true
 
-        //text used to title the mood monthly stats contains text "Monthly Progress"
-        Text {
-            id: moodTitle
-            width: parent.width
-            height: parent.height / 10
+        //rectangle used to create the left sidebar
+        Rectangle {
+            id: graphSidebar
+            width: parent.width * (2/10)
+            height: parent.height
+            color: "#1aff01"
 
-            horizontalAlignment: Text.AlignHCenter
-            anchors.left: parent.left
+            //text used to title the mood monthly stats contains text "Monthly Progress"
+            Text {
+                id: moodTitle
+                width: parent.width
+                height: parent.height / 10
 
-            text: qsTr("Monthly Progress")
-            font.pointSize: parent.width / 8
-            wrapMode: Text.WordWrap
+                horizontalAlignment: Text.AlignHCenter
+                anchors.left: parent.left
+
+                text: qsTr("Monthly Progress")
+                font.pointSize: parent.width / 8
+                wrapMode: Text.WordWrap
+            }
+
+            Image {
+
+            }
+
+
         }
 
-        Image {
+        //built in calendar QML type that displays the current month with default Calendar behavior
+        Calendar {
+            width: parent.width * (8/10)
+            height: parent.height
+
+            anchors.right: parent.right
 
         }
-
-
-    }
-
-    //built in calendar QML type that displays the current month with default Calendar behavior
-    Calendar {
-        width: parent.width * (8/10)
-        height: parent.height
-
-        anchors.right: parent.right
-
     }
 }
