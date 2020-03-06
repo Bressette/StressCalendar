@@ -38,8 +38,9 @@ Window {
                 wrapMode: Text.WordWrap
             }
 
-            Image {
-
+            Image
+            {
+                source: "emoticons/joy.png"
             }
 
 
