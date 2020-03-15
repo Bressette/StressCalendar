@@ -23,7 +23,7 @@ Window {
 
         //rectangle used to create the left sidebar
         Rectangle {
-            id: graphSidebarBackgroundId
+            id: graphSidebarId
             width: rootId.width * (2/10)
             height: rootId.height
             color: "#1aff01"
@@ -55,8 +55,8 @@ Window {
             ColumnLayout
             {
                 id: emoticonsColumnId
-                x: 0.02604 * graphSidebarBackgroundId.width
-//                anchors.top: graphSidebarBackgroundId.top
+                x: 0.02604 * graphSidebarId.width
+//                anchors.top: graphSidebarId.top
 //                anchors.topMargin: parent.height / 7
                 anchors.top: alignmentRect.bottom
 
@@ -64,7 +64,7 @@ Window {
                 {
                     id: joyId
                     source: "emoticons/joy.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
 
 
@@ -74,7 +74,7 @@ Window {
                 {
                     id: happyId
                     source: "emoticons/happy.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
                 }
 
@@ -82,7 +82,7 @@ Window {
                 {
                     id: sadId
                     source: "emoticons/sad.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
                 }
 
@@ -90,7 +90,7 @@ Window {
                 {
                     id: worryId
                     source: "emoticons/worry.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
                 }
 
@@ -98,7 +98,7 @@ Window {
                 {
                     id: fearfulId
                     source: "emoticons/fearful.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
                 }
 
@@ -106,7 +106,7 @@ Window {
                 {
                     id: angerId
                     source: "emoticons/anger.png"
-                    Layout.preferredHeight: graphSidebarBackgroundId.height / 14
+                    Layout.preferredHeight: graphSidebarId.height / 14
                     Layout.preferredWidth: Layout.preferredHeight
                 }
 
@@ -126,6 +126,83 @@ Window {
                 text: qsTr("Physical Activity")
                 font.pointSize: moodTitleId.font.pointSize / 1.2
                 wrapMode: Text.WordWrap
+            }
+
+            ColumnLayout
+            {
+                x: 0.02604 * graphSidebarId.width
+                anchors.top: emoticonsColumnId.bottom
+                anchors.topMargin: physcialActivityTitleId.implicitHeight
+
+                Text
+                {
+                    id: mondayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Mon")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: tuesdayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Tues")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: wednesdayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Wed")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: thursdayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Thu")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: fridayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Fri")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: saturdayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Sat")
+                    font.pointSize: graphSidebarId.width / 12
+                }
+
+                Text
+                {
+                    id: sundayTextId
+                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredHeight: Layout.preferredWidth
+
+                    text: qsTr("Sun")
+                    font.pointSize: graphSidebarId.width / 12
+                }
             }
 
         }
