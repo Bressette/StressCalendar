@@ -135,71 +135,71 @@ Window {
                 Text
                 {
                     id: mondayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Mon")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: tuesdayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Tues")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: wednesdayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Wed")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: thursdayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Thu")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: fridayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Fri")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: saturdayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Sat")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
 
                 Text
                 {
                     id: sundayTextId
-                    Layout.preferredWidth: graphSidebarId.width / 10
+                    Layout.preferredWidth: graphSidebarId.height / 27
                     Layout.preferredHeight: Layout.preferredWidth
 
                     text: qsTr("Sun")
-                    font.pointSize: graphSidebarId.width / 12
+                    font.pointSize: graphSidebarId.height / 29
                 }
             }
 
