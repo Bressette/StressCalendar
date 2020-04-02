@@ -56,8 +56,6 @@ Window {
             {
                 id: emoticonsColumnId
                 x: 0.02604 * graphSidebarId.width
-//                anchors.top: graphSidebarId.top
-//                anchors.topMargin: parent.height / 7
                 anchors.top: alignmentRect.bottom
 
                 Image
@@ -212,13 +210,57 @@ Window {
 
 
         //built in calendar QML type that displays the current month with default Calendar behavior
-        Calendar {
+        Calendar
+        {
             id: calendarId
             width: parent.width * (8/10)
             height: parent.height
 
             anchors.right: parent.right
 
+            onClicked:
+            {
+                enterInputRectId.visible = true
+            }
+
+        }
+
+        Rectangle
+        {
+            id: enterInputRectId
+            anchors.fill: calendarScreenId
+            color: "transparent"
+            anchors.centerIn: calendarId
+
+            //this mouse area represents the outside of the popup rectangle and exits the popup when clicked
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked:
+                {
+
+                    enterInputRectId.visible = false
+                }
+            }
+
+            Rectangle
+            {
+                id: dayRectId
+                width: parent.height * 0.75
+                height: parent.height * 0.75
+                color: "blue"
+                anchors.centerIn: parent
+
+                //this mouse area represents the popup rectangle
+                MouseArea
+                {
+                    anchors.fill: parent
+                }
+
+            }
+
+            visible: false
         }
     }
 }
+
