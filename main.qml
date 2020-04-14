@@ -86,8 +86,8 @@ Window {
                 anchors.top: emoticonsLayoutId.bottom
 
                 anchors.topMargin: physcialActivityTitleId.implicitHeight
-                textLayoutWidth : graphSidebarId.height / 27
-                textPointSize : graphSidebarId.height / 29
+                textLayoutWidth : calendarScreenId.width >= calendarScreenId.height ? graphSidebarId.height / 27 : graphSidebarId.width / 4
+                textPointSize : calendarScreenId.width >= calendarScreenId.height ? graphSidebarId.height / 29 : graphSidebarId.width / 4
 
             }
 
@@ -166,13 +166,6 @@ Window {
                 color: "grey"
                 anchors.centerIn: parent
 
-                property int calendarWidth : parent.width * (8/10)
-
-
-
-//                anchors.topMargin: parent.height * (2.5/10)
-//                anchors.rightMargin: calendarWidth * (3.3/10)
-
 
                 Text
                 {
@@ -180,7 +173,7 @@ Window {
                     text: qsTr(enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year)
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: 20
+                    font.pointSize: dayRectId.width / 12
                 }
 
                 Text
@@ -192,7 +185,7 @@ Window {
                     anchors.horizontalCenter: parent.horizontalCenter
 
                     horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: 20
+                    font.pointSize: dayRectId.width / 12
                 }
 
                 Rectangle
@@ -214,7 +207,7 @@ Window {
                         text: qsTr("Edit")
                         anchors.centerIn: parent
                         horizontalAlignment: Text.AlignHCenter
-                        font.pointSize: 20
+                        font.pointSize: editButtonId.height / 2
                     }
 
                     MouseArea
