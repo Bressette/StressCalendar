@@ -28,7 +28,7 @@ Window {
             height: rootId.height
             color: "#1aff01"
 
-            //text used to title the mood monthly stats contains text "Monthly Progress"
+            //text used to title the mood monthly stats and contains text "Monthly Progress"
 
             Text {
                 id: moodTitleId
@@ -44,6 +44,7 @@ Window {
                 wrapMode: Text.WordWrap
             }
 
+            //rectangle used to align the top of the emoticons to the bottom of the mood title
             Rectangle
             {
                 id: alignmentRect
@@ -126,82 +127,15 @@ Window {
                 wrapMode: Text.WordWrap
             }
 
-            ColumnLayout
+            DayTitles
             {
-                x: 0.02604 * graphSidebarId.width
-                anchors.top: emoticonsColumnId.bottom
-                anchors.topMargin: physcialActivityTitleId.implicitHeight
+                id: dayTitlesId
 
-                Text
-                {
-                    id: mondayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
+                textLayoutWidth : graphSidebarId.height / 27
+                textPointSize : graphSidebarId.height / 29
 
-                    text: qsTr("Mon")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: tuesdayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Tues")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: wednesdayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Wed")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: thursdayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Thu")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: fridayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Fri")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: saturdayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Sat")
-                    font.pointSize: graphSidebarId.height / 29
-                }
-
-                Text
-                {
-                    id: sundayTextId
-                    Layout.preferredWidth: graphSidebarId.height / 27
-                    Layout.preferredHeight: Layout.preferredWidth
-
-                    text: qsTr("Sun")
-                    font.pointSize: graphSidebarId.height / 29
-                }
             }
+
 
         }
 
@@ -255,12 +189,14 @@ Window {
                 MouseArea
                 {
                     anchors.fill: parent
+
                 }
 
             }
 
             visible: false
         }
+
     }
 }
 
