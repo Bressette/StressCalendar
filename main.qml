@@ -90,13 +90,7 @@ Window {
                 textPointSize : calendarScreenId.width >= calendarScreenId.height ? graphSidebarId.height / 29 : graphSidebarId.width / 4
 
             }
-
-
         }
-
-
-
-
 
 
         //built in calendar QML type that displays the current month with default Calendar behavior
@@ -125,10 +119,12 @@ Window {
 
         }
 
+        //MouseArea that is used to exit the popup window when the user clicks on the sidebar
         MouseArea
         {
             anchors.fill: graphSidebarId
-            onClicked: {
+            onClicked:
+            {
                 enterInputRectId.visible = false
             }
         }
@@ -158,77 +154,20 @@ Window {
                 }
             }
 
-            Rectangle
+            //popup window that contains text about the selected date and an edit button that lets the user advance to the user input screen
+            DayPopup
             {
-                id: dayRectId
-                width: calendarId.height * 0.5
-                height: calendarId.height * 0.5
-                color: "grey"
-                anchors.centerIn: parent
-
-
-                Text
-                {
-                    id: dateTextId
-                    text: qsTr(enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year)
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: dayRectId.width / 12
-                }
-
-                Text
-                {
-                    id: dataStatusId
-                    text: qsTr("No Data")
-
-                    anchors.top: dateTextId.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    horizontalAlignment: Text.AlignHCenter
-                    font.pointSize: dayRectId.width / 12
-                }
-
-                Rectangle
-                {
-                    id: editButtonId
-                    width: parent.width * 0.75
-                    height: parent.height / 5
-
-                    anchors.top: dataStatusId.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    color: "white"
-                    border.color: "black"
-                    border.width: 5
-
-                    Text
-                    {
-                        id: editTextId
-                        text: qsTr("Edit")
-                        anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
-                        font.pointSize: editButtonId.height / 2
-                    }
-
-                    MouseArea
-                    {
-                        id: editButtonMouseAreaId
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("In onclick")
-                            //calendarScreenId.visible = false
-                        }
-                    }
-                }
-
-
-
-
+                id: dayPopupId
+                dateTextSize : rectWidth / 12
+                dateText : enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
+                dataStatusSize : rectWidth / 12
+                dataStatusText : "No data"
             }
 
             visible: false
         }
 
     }
+
 }
 

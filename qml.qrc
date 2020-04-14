@@ -9,5 +9,6 @@
         <file>emoticons/worry.png</file>
         <file>DayTitles.qml</file>
         <file>EmoticonsLayout.qml</file>
+        <file>DayPopup.qml</file>
     </qresource>
 </RCC>
