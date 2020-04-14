@@ -8,5 +8,6 @@
         <file>emoticons/sad.png</file>
         <file>emoticons/worry.png</file>
         <file>DayTitles.qml</file>
+        <file>EmoticonsLayout.qml</file>
     </qresource>
 </RCC>

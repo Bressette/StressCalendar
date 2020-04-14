@@ -3,9 +3,7 @@ import QtQuick.Layouts 1.3
 
 ColumnLayout
 {
-    x: 0.02604 * graphSidebarId.width
-    anchors.top: emoticonsColumnId.bottom
-    anchors.topMargin: physcialActivityTitleId.implicitHeight
+
 
     property int textLayoutWidth
     property int textPointSize
