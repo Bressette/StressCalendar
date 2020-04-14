@@ -125,13 +125,21 @@ Window {
 
         }
 
+        MouseArea
+        {
+            anchors.fill: graphSidebarId
+            onClicked: {
+                enterInputRectId.visible = false
+            }
+        }
+
         //rectangle that represents the popup window that allows the user to enter data into a date on the calendar
         Rectangle
         {
             id: enterInputRectId
-            anchors.fill: calendarScreenId
+            anchors.fill: calendarId
             color: "transparent"
-            //anchors.centerIn: calendarId
+            anchors.centerIn: calendarId
 
             property string day
             property string month
@@ -139,7 +147,7 @@ Window {
 
 
 
-            //this mouse area represents the outside of the popup rectangle and exits the popup when clicked
+            //this mouse area represents the outside of the edit button and exits the popup when clicked
             MouseArea
             {
                 anchors.fill: parent
@@ -156,15 +164,14 @@ Window {
                 width: calendarId.height * 0.5
                 height: calendarId.height * 0.5
                 color: "grey"
-                anchors.top: parent.top
-                anchors.right: parent.right
+                anchors.centerIn: parent
 
                 property int calendarWidth : parent.width * (8/10)
 
 
 
-                anchors.topMargin: parent.height * (2.5/10)
-                anchors.rightMargin: calendarWidth * (3.3/10)
+//                anchors.topMargin: parent.height * (2.5/10)
+//                anchors.rightMargin: calendarWidth * (3.3/10)
 
 
                 Text
