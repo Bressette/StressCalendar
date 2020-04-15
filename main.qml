@@ -111,17 +111,13 @@ Window {
 
             function getDataForDate()
             {
-                console.log("In database function")
                 var db = DB.getDatabaseConnection()
                 db.transaction(
                             function(tx)
                             {
 
                                 DB.createTable(tx)
-                                DB.insertData(tx, 2020-06-23, 3, 54, "Some very epic new new text")
                                 var result = DB.selectDayData(tx, 2020-06-23)
-
-
 
                                 if(!(result.rows.length > 0))
                                 {
@@ -132,8 +128,6 @@ Window {
                                 {
                                     SetVals.setValuesFromQuery(result)
                                 }
-
-
                             }
                         )
             }
@@ -151,7 +145,6 @@ Window {
                 enterInputRectId.year = year.toString()
                 getDataForDate()
                 enterInputRectId.visible = true
-                getDataForDate
             }
 
         }
@@ -586,16 +579,14 @@ Window {
         }
 
 
-        Rectangle
+        NavigationButton
         {
-            id: backToCalendarRectId
-            width: parent.width / 5
-            height: parent.height / 15
-            color: "grey"
-            anchors.left: dateAlignmentRectId.right
-            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
+            id: backToCalendarButtonId
 
-            //anchors.rightMargin: 5
+            buttonWidth: parent.width / 5
+            buttonHeight: parent.height / 15
+            buttonColor: "grey"
+            textContent: "Back to Calendar"
 
             MouseArea
             {
@@ -609,24 +600,40 @@ Window {
                     console.log("Switch back to the calendar screen")
                 }
             }
-
-
-
-            Text
-            {
-                id: backToCalendarText
-                width: parent.width
-                height: parent.height
-                text: "Back to Calendar"
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pointSize: 100
-                minimumPointSize: 10
-                fontSizeMode: Text.HorizontalFit
-            }
-
         }
+
+//        Rectangle
+//        {
+//            id: backToCalendarRectId
+//            width: parent.width / 5
+//            height: parent.height / 15
+//            color: "grey"
+//            anchors.left: dateAlignmentRectId.right
+//            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
+
+//            //anchors.rightMargin: 5
+
+
+
+
+
+
+
+//            Text
+//            {
+//                id: backToCalendarText
+//                width: parent.width
+//                height: parent.height
+//                text: "Back to Calendar"
+//                anchors.centerIn: parent
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                font.pointSize: 100
+//                minimumPointSize: 10
+//                fontSizeMode: Text.HorizontalFit
+//            }
+
+//        }
 
         Rectangle
         {
@@ -634,7 +641,7 @@ Window {
             width: parent.width / 8
             height: parent.height / 15
             color: "grey"
-            anchors.left: backToCalendarRectId.right
+            anchors.left: backToCalendarButtonId.right
             anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
 
             MouseArea
