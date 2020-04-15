@@ -14,8 +14,7 @@ Rectangle
     width: buttonWidth
     height: buttonHeight
     color: buttonColor
-    anchors.left: dateAlignmentRectId.right
-    anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
+
 
     Text
     {

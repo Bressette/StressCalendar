@@ -117,7 +117,7 @@ Window {
                             {
 
                                 DB.createTable(tx)
-                                var result = DB.selectDayData(tx, 2020-06-23)
+                                var result = DB.selectDayData(tx, 2020-10-23)
 
                                 if(!(result.rows.length > 0))
                                 {
@@ -495,14 +495,51 @@ Window {
             anchors.leftMargin: 10
         }
 
-        Rectangle
+//        Rectangle
+//        {
+//            id: previousDayRectId
+//            width: parent.width / 8
+//            height: parent.height / 15
+//            color: "grey"
+//            anchors.left: lineSeparatorRectId.right
+//            anchors.leftMargin: 5
+
+//            MouseArea
+//            {
+//                anchors.fill: parent
+
+//                onClicked:
+//                {
+//                    console.log("Populate fields with data from previous day")
+//                }
+//            }
+
+
+
+//            Text
+//            {
+//                id: previousDayText
+//                width: parent.width
+//                height: parent.height
+//                text: "Previous Day"
+//                anchors.centerIn: parent
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                font.pointSize: 100
+//                minimumPointSize: 10
+//                fontSizeMode: Text.Fit
+//            }
+//        }
+
+        NavigationButton
         {
-            id: previousDayRectId
-            width: parent.width / 8
-            height: parent.height / 15
-            color: "grey"
+            id: previousDayButtonId
+            buttonWidth: parent.width / 8
+            buttonHeight: parent.height / 15
+            buttonColor: "grey"
             anchors.left: lineSeparatorRectId.right
             anchors.leftMargin: 5
+            textContent: "Previous Day"
 
             MouseArea
             {
@@ -513,34 +550,27 @@ Window {
                     console.log("Populate fields with data from previous day")
                 }
             }
+        }
 
 
 
-            Text
-            {
-                id: previousDayText
-                width: parent.width
-                height: parent.height
-                text: "Previous Day"
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pointSize: 100
-                minimumPointSize: 10
-                fontSizeMode: Text.Fit
-            }
+
+
+
 
             TextArea
             {
                 id: notesTextAreaId
                 width: rootId.width - lineSeparatorRectId.x * 1.2
-                height: rootId.height - previousDayRectId.height * 2
-                anchors.top: previousDayRectId.bottom
+                height: rootId.height - previousDayButtonId.height * 2.5
+                anchors.top: previousDayButtonId.bottom
                 anchors.topMargin: 10
+                anchors.left: lineSeparatorRectId.right
+                anchors.leftMargin: 5
                 text: "Enter notes here"
                 font.pointSize: 10
             }
-        }
+
 
 
 
@@ -551,10 +581,8 @@ Window {
             width: parent.width / 8
             height: parent.height / 15
             color: "transparent"
-            anchors.left: previousDayRectId.right
-            anchors.leftMargin: previousDayRectId.width / 4
-
-
+            anchors.left: previousDayButtonId.right
+            anchors.leftMargin: previousDayButtonId.width / 4
 
             Text
             {
@@ -564,8 +592,6 @@ Window {
                 property string day : enterInputRectId.day
                 property string month : enterInputRectId.month
                 property string year : enterInputRectId.year
-
-
 
                 text: month + "/" + day + "/" + year
                 anchors.centerIn: parent
@@ -588,6 +614,9 @@ Window {
             buttonColor: "grey"
             textContent: "Back to Calendar"
 
+            anchors.left: dateAlignmentRectId.right
+            anchors.leftMargin: (dateAlignmentRectId.x - previousDayButtonId.x) / 4
+
             MouseArea
             {
                 anchors.fill: parent
@@ -602,47 +631,15 @@ Window {
             }
         }
 
-//        Rectangle
-//        {
-//            id: backToCalendarRectId
-//            width: parent.width / 5
-//            height: parent.height / 15
-//            color: "grey"
-//            anchors.left: dateAlignmentRectId.right
-//            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
 
-//            //anchors.rightMargin: 5
-
-
-
-
-
-
-
-//            Text
-//            {
-//                id: backToCalendarText
-//                width: parent.width
-//                height: parent.height
-//                text: "Back to Calendar"
-//                anchors.centerIn: parent
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                font.pointSize: 100
-//                minimumPointSize: 10
-//                fontSizeMode: Text.HorizontalFit
-//            }
-
-//        }
-
-        Rectangle
+        NavigationButton
         {
-            id: nextDayRectId
-            width: parent.width / 8
-            height: parent.height / 15
-            color: "grey"
+            id: nextDayButtonId
+            buttonWidth: parent.width / 8
+            buttonHeight: parent.height / 15
+            buttonColor: "grey"
             anchors.left: backToCalendarButtonId.right
-            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
+            anchors.leftMargin: (dateAlignmentRectId.x - previousDayButtonId.x) / 4
 
             MouseArea
             {
@@ -654,21 +651,7 @@ Window {
                 }
             }
 
-
-
-            Text
-            {
-                id: nextDayText
-                width: parent.width
-                height: parent.height
-                text: "Next Day"
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pointSize: 100
-                minimumPointSize: 10
-                fontSizeMode: Text.Fit
-            }
+            textContent: "Next Day"
         }
     }
 

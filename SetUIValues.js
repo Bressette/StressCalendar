@@ -1,11 +1,6 @@
 function setDefaultValues()
 {
-    joyRadioButtonId.checked = false
-    happyRadioButtonId.checked = false
-    sadRadioButtonId.checked = false
-    worriedRadioButtonId.checked = false
-    fearfulRadioButtonId.checked = false
-    angryRadioButtonId.checked = false
+    setRadioButtonsFalse()
     physicalActivityInputTextFieldId.text = "0"
     notesTextAreaId.text = "Enter Notes here"
     dayPopupId.dataStatusText = "No data"
@@ -32,6 +27,10 @@ function setRadioButton(dbRadioButtonSelection)
             break
         case 5:
             angryRadioButtonId.checked = true
+            break
+        case 6:
+            setRadioButtonsFalse()
+            break
     }
 }
 
@@ -41,4 +40,14 @@ function setValuesFromQuery(result)
     setRadioButton(dbRadioButtonSelection)
     physicalActivityInputTextFieldId.text = result.rows.item(0).physicalActivity
     notesTextAreaId.text = result.rows.item(0).notes
+}
+
+function setRadioButtonsFalse()
+{
+    joyRadioButtonId.checked = false
+    happyRadioButtonId.checked = false
+    sadRadioButtonId.checked = false
+    worriedRadioButtonId.checked = false
+    fearfulRadioButtonId.checked = false
+    angryRadioButtonId.checked = false
 }
