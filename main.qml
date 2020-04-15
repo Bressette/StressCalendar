@@ -286,13 +286,14 @@ Window {
             width: parent.width / 8
             height: parent.height / 15
             color: "transparent"
-            anchors.horizontalCenter: userInputScreenId.horizontalCenter
+            anchors.left: previousDayRectId.right
+            anchors.leftMargin: previousDayRectId.width / 4
 
 
 
             Text
             {
-                id: userInputDateText
+                id: userInputDateTextId
                 width: parent.width
                 height: parent.height
                 property string day : enterInputRectId.day
@@ -313,45 +314,82 @@ Window {
         }
 
 
-//        Rectangle
-//        {
-//            id: backToCalendarRectId
-//            width: parent.width / 5
-//            height: parent.height / 15
-//            color: "grey"
-//            anchors.horizontalCenter: parent.horizontalCenter
+        Rectangle
+        {
+            id: backToCalendarRectId
+            width: parent.width / 5
+            height: parent.height / 15
+            color: "grey"
+            anchors.left: dateAlignmentRectId.right
+            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
 
-//            //anchors.rightMargin: 5
+            //anchors.rightMargin: 5
 
-//            MouseArea
-//            {
-//                anchors.fill: parent
+            MouseArea
+            {
+                anchors.fill: parent
 
-//                onClicked:
-//                {
-//                    calendarScreenId.visible = true
-//                    userInputScreenId.visible = false
-//                    console.log("Switch back to the calendar screen")
-//                }
-//            }
+                onClicked:
+                {
+                    calendarScreenId.visible = true
+                    userInputScreenId.visible = false
+                    console.log("Switch back to the calendar screen")
+                }
+            }
 
 
 
-//            Text
-//            {
-//                id: backToCalendarText
-//                width: parent.width
-//                height: parent.height
-//                text: "Back to Calendar"
-//                anchors.centerIn: parent
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                font.pointSize: 100
-//                minimumPointSize: 10
-//                fontSizeMode: Text.HorizontalFit
-//            }
+            Text
+            {
+                id: backToCalendarText
+                width: parent.width
+                height: parent.height
+                text: "Back to Calendar"
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.pointSize: 100
+                minimumPointSize: 10
+                fontSizeMode: Text.HorizontalFit
+            }
 
-//        }
+        }
+
+        Rectangle
+        {
+            id: nextDayRectId
+            width: parent.width / 8
+            height: parent.height / 15
+            color: "grey"
+            anchors.left: backToCalendarRectId.right
+            anchors.leftMargin: (dateAlignmentRectId.x - previousDayRectId.x) / 4
+
+            MouseArea
+            {
+                anchors.fill: parent
+
+                onClicked:
+                {
+                    console.log("Populate fields with data from next day")
+                }
+            }
+
+
+
+            Text
+            {
+                id: nextDayText
+                width: parent.width
+                height: parent.height
+                text: "Next Day"
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.pointSize: 100
+                minimumPointSize: 10
+                fontSizeMode: Text.Fit
+            }
+        }
     }
 
 }
