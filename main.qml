@@ -131,10 +131,9 @@ Window {
 
                                 else
                                 {
-                                    var dbRadioButtonSelection = result.rows.item(0).mood
+                                    SetVals.setRadioButton(result)
                                     var dbPhysicalActivityAmount = result.rows.item(0).physicalActivity
                                     var dbNotes = result.rows.item(0).notes
-                                    SetVals.setRadioButton(dbRadioButtonSelection)
                                     physicalActivityInputTextFieldId.text = dbPhysicalActivityAmount
                                     notesTextAreaId.text = dbNotes
                                 }

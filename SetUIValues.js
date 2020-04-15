@@ -11,8 +11,9 @@ function setDefaultValues()
     dayPopupId.dataStatusText = "No data"
 }
 
-function setRadioButton(dbRadioButtonSelection)
+function setRadioButton(result)
 {
+    var dbRadioButtonSelection = result.rows.item(0).mood
     switch(dbRadioButtonSelection)
     {
         case 0:
