@@ -116,8 +116,8 @@ Window {
                             {
                                 tx.executeSql("DROP TABLE day")
                                 tx.executeSql('CREATE TABLE IF NOT EXISTS day(date Date, mood INT, physicalActivity INT, notes TEXT)')
-                                //tx.executeSql('INSERT INTO day VALUES(?,?,?,?)', [enterInputRectId.isoDate, 1, 10, "Hello"])
-                                var result = tx.executeSql(('SELECT * FROM day WHERE date = ' + enterInputRectId.isoDate))
+                                tx.executeSql('INSERT INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [enterInputRectId.isoDate, 1, 10, "Hello"])
+                                var result = tx.executeSql('SELECT * FROM day')
 
 
 
@@ -163,7 +163,7 @@ Window {
                                             angryRadioButtonId.checked = true
                                     }
 
-                                    physcialActivityInputId.text = dbPhysicalActivityAmount
+                                    physicalActivityInputTextFieldId.text = dbPhysicalActivityAmount
                                     notesTextAreaId.text = dbNotes
                                 }
 
