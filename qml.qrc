@@ -11,5 +11,6 @@
         <file>EmoticonsLayout.qml</file>
         <file>DayPopup.qml</file>
         <file>DatabaseFunctions.js</file>
+        <file>SetUIValues.js</file>
     </qresource>
 </RCC>

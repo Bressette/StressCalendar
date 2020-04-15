@@ -5,6 +5,7 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.LocalStorage 2.12
 import "DatabaseFunctions.js" as DB
+import "SetUIValues.js" as SetVals
 
 //file that displays the main calendar view
 Window {
@@ -125,18 +126,15 @@ Window {
 
                                 if(!(result.rows.length > 0))
                                 {
-                                      DB.setDefaultValues()
+                                      SetVals.setDefaultValues()
                                 }
 
                                 else
                                 {
-                                    console.log("In else")
                                     var dbRadioButtonSelection = result.rows.item(0).mood
                                     var dbPhysicalActivityAmount = result.rows.item(0).physicalActivity
                                     var dbNotes = result.rows.item(0).notes
-
-                                    DB.setRadioButton(dbRadioButtonSelection)
-
+                                    SetVals.setRadioButton(dbRadioButtonSelection)
                                     physicalActivityInputTextFieldId.text = dbPhysicalActivityAmount
                                     notesTextAreaId.text = dbNotes
                                 }
