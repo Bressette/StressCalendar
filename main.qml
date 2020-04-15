@@ -56,8 +56,9 @@ Window {
             //layout that aligns all of the emoticons vertically in a ColumnLayout
             EmoticonsLayout
             {
-                id: emoticonsLayoutId
+                id: emoticonsCalendarLayoutId
                 imageSize : graphSidebarId.height / 14
+                textEnabled: false
             }
 
 
@@ -68,7 +69,7 @@ Window {
                 width: moodTitleId.width
                 height: moodTitleId.height
 
-                anchors.top: emoticonsLayoutId.bottom
+                anchors.top: emoticonsCalendarLayoutId.bottom
                 anchors.left: parent.left
                 horizontalAlignment: Text.AlignHCenter
 
@@ -83,7 +84,7 @@ Window {
                 id: dayTitlesId
 
                 x: 0.02604 * graphSidebarId.width
-                anchors.top: emoticonsLayoutId.bottom
+                anchors.top: emoticonsCalendarLayoutId.bottom
 
                 anchors.topMargin: physcialActivityTitleId.implicitHeight
                 textLayoutWidth : calendarScreenId.width >= calendarScreenId.height ? graphSidebarId.height / 27 : graphSidebarId.width / 4
@@ -166,6 +167,64 @@ Window {
 
             visible: false
         }
+
+    }
+
+
+    property int imageSize : graphSidebarId.height / 10
+
+    //code for the user input screen
+    Rectangle
+    {
+        id: userInputScreenId
+        anchors.fill: parent
+        visible: false
+
+
+        EmoticonsLayout
+        {
+            id: emoticonsInputLayoutId
+            imageSize : graphSidebarId.height / 11
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            textEnabled: true
+
+            textSize: graphSidebarId.height / 50
+        }
+
+        Text
+        {
+            id: physcialActivityInputId
+            width: moodTitleId.width
+
+            anchors.top: emoticonsInputLayoutId.bottom
+            anchors.left: parent.left
+
+
+            text: qsTr("Physical Activity(minutes)")
+            font.pointSize: moodTitleId.font.pointSize / 2
+            wrapMode: Text.WordWrap
+        }
+
+
+
+        TextField
+        {
+            width: physcialActivityInputId.implicitWidth
+            height: graphSidebarId.height * 0.1
+            anchors.top: physcialActivityInputId.bottom
+            validator: IntValidator {bottom: 0;}
+            font.pointSize: height / 3
+
+        }
+
+        property int testProp : 4
+
+
+
+
+
 
     }
 
