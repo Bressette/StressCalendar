@@ -115,10 +115,11 @@ Window {
                 db.transaction(
                             function(tx)
                             {
-                                //tx.executeSql("DROP TABLE day")
+
                                 DB.createTable(tx)
-                                tx.executeSql('INSERT INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [enterInputRectId.isoDate, 1, 10, "Hello"])
-                                var result = tx.executeSql('SELECT * FROM day')
+                                //tx.executeSql('INSERT INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [enterInputRectId.isoDate, 1, 10, "Hello"])
+                                DB.insertData(tx, 2020-06-23, 3, 54, "Some very epic new new text")
+                                var result = tx.executeSql('SELECT * FROM day WHERE date = 2020-06-23')
 
 
 
