@@ -13,6 +13,13 @@ ColumnLayout
     property bool textEnabled
     property double textSize
 
+    property alias joyVerticalCenter : joyId.verticalCenter
+    property alias happyVerticalCenter : happyId.verticalCenter
+    property alias sadVerticalCneter : sadId.verticalCenter
+    property alias worriedVerticalCenter : worryId.verticalCenter
+    property alias fearfulVerticalCenter : fearfulId.verticalCenter
+    property alias angryVerticalCenter : angerId.verticalCenter
+
     Image
     {
         id: joyId
@@ -41,6 +48,7 @@ ColumnLayout
         source: "emoticons/happy.png"
         Layout.preferredHeight: imageSize
         Layout.preferredWidth: Layout.preferredHeight
+
     }
 
     Text
