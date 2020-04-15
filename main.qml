@@ -116,8 +116,6 @@ Window {
                 enterInputRectId.day = day.toString()
                 enterInputRectId.month = month.toString()
                 enterInputRectId.year = year.toString()
-
-
                 enterInputRectId.visible = true
             }
 
@@ -144,7 +142,6 @@ Window {
             property string day
             property string month
             property string year
-
 
 
             //this mouse area represents the outside of the edit button and exits the popup when clicked
@@ -281,63 +278,80 @@ Window {
         }
 
 
-        Text
-        {
-            id: userInputDateText
-            property string day : enterInputRectId.day
-            property string month : enterInputRectId.month
-            property string year : enterInputRectId.year
-            text: month + "/" + day + "/" + year
-            anchors.horizontalCenter: parent.horizontalCenteri
-        }
 
 
         Rectangle
         {
-            id: backToCalendarRectId
-            width: parent.width / 5
+            id: dateAlignmentRectId
+            width: parent.width / 8
             height: parent.height / 15
-            color: "grey"
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            //anchors.rightMargin: 5
-
-            MouseArea
-            {
-                anchors.fill: parent
-
-                onClicked:
-                {
-                    calendarScreenId.visible = true
-                    userInputScreenId.visible = false
-                    console.log("Switch back to the calendar screen")
-                }
-            }
+            color: "transparent"
+            anchors.horizontalCenter: userInputScreenId.horizontalCenter
 
 
 
             Text
             {
-                id: backToCalendarText
+                id: userInputDateText
                 width: parent.width
                 height: parent.height
-                text: "Back to Calendar"
+                property string day : enterInputRectId.day
+                property string month : enterInputRectId.month
+                property string year : enterInputRectId.year
+
+
+
+                text: month + "/" + day + "/" + year
                 anchors.centerIn: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.pointSize: 100
                 minimumPointSize: 10
                 fontSizeMode: Text.HorizontalFit
+
             }
-
-        property int testProp : 4
-
-
-
-
-
-
         }
+
+
+//        Rectangle
+//        {
+//            id: backToCalendarRectId
+//            width: parent.width / 5
+//            height: parent.height / 15
+//            color: "grey"
+//            anchors.horizontalCenter: parent.horizontalCenter
+
+//            //anchors.rightMargin: 5
+
+//            MouseArea
+//            {
+//                anchors.fill: parent
+
+//                onClicked:
+//                {
+//                    calendarScreenId.visible = true
+//                    userInputScreenId.visible = false
+//                    console.log("Switch back to the calendar screen")
+//                }
+//            }
+
+
+
+//            Text
+//            {
+//                id: backToCalendarText
+//                width: parent.width
+//                height: parent.height
+//                text: "Back to Calendar"
+//                anchors.centerIn: parent
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                font.pointSize: 100
+//                minimumPointSize: 10
+//                fontSizeMode: Text.HorizontalFit
+//            }
+
+//        }
     }
 
 }
