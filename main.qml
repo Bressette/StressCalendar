@@ -11,6 +11,9 @@ Window {
     title: qsTr("Calendar")
     id: rootId
 
+
+
+
     //rectangle used to create the main screen
     Rectangle
     {
@@ -163,6 +166,7 @@ Window {
                 dateText : enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
                 dataStatusSize : rectWidth / 12
                 dataStatusText : "No data"
+
             }
 
             visible: false
@@ -234,9 +238,7 @@ Window {
             id: previousDayRectId
             width: parent.width / 8
             height: parent.height / 15
-            color: "white"
-            border.color: "black"
-            border.width: 2
+            color: "grey"
             anchors.left: lineSeparatorRectId.right
             anchors.leftMargin: 5
 
@@ -259,6 +261,8 @@ Window {
                 height: parent.height
                 text: "Previous Day"
                 anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 font.pointSize: 100
                 minimumPointSize: 10
                 fontSizeMode: Text.Fit
@@ -276,6 +280,56 @@ Window {
             }
         }
 
+
+        Text
+        {
+            id: userInputDateText
+            property string day : enterInputRectId.day
+            property string month : enterInputRectId.month
+            property string year : enterInputRectId.year
+            text: month + "/" + day + "/" + year
+            anchors.horizontalCenter: parent.horizontalCenteri
+        }
+
+
+        Rectangle
+        {
+            id: backToCalendarRectId
+            width: parent.width / 5
+            height: parent.height / 15
+            color: "grey"
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            //anchors.rightMargin: 5
+
+            MouseArea
+            {
+                anchors.fill: parent
+
+                onClicked:
+                {
+                    calendarScreenId.visible = true
+                    userInputScreenId.visible = false
+                    console.log("Switch back to the calendar screen")
+                }
+            }
+
+
+
+            Text
+            {
+                id: backToCalendarText
+                width: parent.width
+                height: parent.height
+                text: "Back to Calendar"
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.pointSize: 100
+                minimumPointSize: 10
+                fontSizeMode: Text.HorizontalFit
+            }
+
         property int testProp : 4
 
 
@@ -283,6 +337,7 @@ Window {
 
 
 
+        }
     }
 
 }
