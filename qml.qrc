@@ -10,5 +10,6 @@
         <file>DayTitles.qml</file>
         <file>EmoticonsLayout.qml</file>
         <file>DayPopup.qml</file>
+        <file>DatabaseFunctions.js</file>
     </qresource>
 </RCC>

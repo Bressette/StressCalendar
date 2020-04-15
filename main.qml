@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.LocalStorage 2.12
+import "DatabaseFunctions.js" as DB
 
 //file that displays the main calendar view
 Window {
@@ -110,7 +111,7 @@ Window {
             function getDataForDate()
             {
                 console.log("In database function")
-                var db = LocalStorage.openDatabaseSync("CalendarDB", "1.0", "CalendarDB", 1000000)
+                var db = DB.getDatabaseConnection()
                 db.transaction(
                             function(tx)
                             {
@@ -212,67 +213,6 @@ Window {
             property string month
             property string year
             property string isoDate : year + "-" + month + "-" + day
-
-//            function getDataForDate()
-//            {
-//                console.log("In database function")
-//                var db = LocalStorage.openDatabaseSync("CalendarDB", "1.0", "CalendarDB", 1000000)
-//                db.transaction(
-//                            function(tx)
-//                            {
-//                                tx.executeSql('CREATE TABLE IF NOT EXISTS day(date Date, mood INT, physicalActivity INT, notes TEXT)')
-//                                tx.executeSql('INSERT INTO day VALUES(?,?,?,?)', [isoDate, 1, 10, "Hello"])
-//                                var result = tx.executeSql(('SELECT * FROM day WHERE date = ' + isoDate))
-
-//                                if(result === null)
-//                                {
-//                                    joyRadioButtonId.checked = false
-//                                    happyRadioButtonId.checked = false
-//                                    sadRadioButtonId.checked = false
-//                                    worriedRadioButtonId.checked = false
-//                                    fearfulRadioButtonId.checked = false
-//                                    angryRadioButtonId.checked = false
-//                                    physcialActivityInputId.text = ""
-//                                    notesTextAreaId.text = "Enter Notes here"
-//                                    dayPopupId.dataStatusText = "No data"
-//                                }
-
-//                                else
-//                                {
-//                                    var dbRadioButtonSelection = result.rows.item(0).mood
-//                                    var dbPhysicalActivityAmount = result.rows.item(0).physicalActivity
-//                                    var dbNotes = result.rows.item(0).notes
-
-//                                    switch(dbRadioButtonSelection)
-//                                    {
-//                                        case 0:
-//                                            joyRadioButtonId.checked = true
-//                                            break
-//                                        case 1:
-//                                            happyRadioButtonId.checked = true
-//                                            break
-//                                        case 2:
-//                                            sadRadioButtonId.checked = true
-//                                            break
-//                                        case 3:
-//                                            worriedRadioButtonId.checked = true
-//                                            break;
-//                                        case 4:
-//                                            fearfulRadioButtonId.checked = true
-//                                            break
-//                                        case 5:
-//                                            angryRadioButtonId.checked = true
-//                                    }
-
-//                                    physcialActivityInputId.text = dbPhysicalActivityAmount
-//                                    notesTextAreaId.text = dbNotes
-//                                }
-
-
-//                            }
-//                        )
-//            }
-            //Component.onCompleted: getDataForDate()
 
 
             //this mouse area represents the outside of the edit button and exits the popup when clicked
