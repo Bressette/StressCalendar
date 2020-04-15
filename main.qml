@@ -115,8 +115,8 @@ Window {
                 db.transaction(
                             function(tx)
                             {
-                                tx.executeSql("DROP TABLE day")
-                                tx.executeSql('CREATE TABLE IF NOT EXISTS day(date Date, mood INT, physicalActivity INT, notes TEXT)')
+                                //tx.executeSql("DROP TABLE day")
+                                DB.createTable(tx)
                                 tx.executeSql('INSERT INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [enterInputRectId.isoDate, 1, 10, "Hello"])
                                 var result = tx.executeSql('SELECT * FROM day')
 
