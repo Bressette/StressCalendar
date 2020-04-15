@@ -570,6 +570,7 @@ Window {
                 {
                     calendarScreenId.visible = true
                     userInputScreenId.visible = false
+                    enterInputRectId.visible = false
                     console.log("Switch back to the calendar screen")
                 }
             }
