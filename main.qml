@@ -117,24 +117,24 @@ Window {
                             {
 
                                 DB.createTable(tx)
-                                //tx.executeSql('INSERT INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [enterInputRectId.isoDate, 1, 10, "Hello"])
                                 DB.insertData(tx, 2020-06-23, 3, 54, "Some very epic new new text")
-                                var result = tx.executeSql('SELECT * FROM day WHERE date = 2020-06-23')
-
+                                //var result = tx.executeSql('SELECT * FROM day WHERE date = 2020-06-23')
+                                var result = DB.selectDayData(tx, 2020-08-23)
 
 
 
                                 if(!(result.rows.length > 0))
                                 {
-                                    joyRadioButtonId.checked = false
-                                    happyRadioButtonId.checked = false
-                                    sadRadioButtonId.checked = false
-                                    worriedRadioButtonId.checked = false
-                                    fearfulRadioButtonId.checked = false
-                                    angryRadioButtonId.checked = false
-                                    physicalActivityInputTextFieldId.text = "0"
-                                    notesTextAreaId.text = "Enter Notes here"
-                                    dayPopupId.dataStatusText = "No data"
+//                                    joyRadioButtonId.checked = false
+//                                    happyRadioButtonId.checked = false
+//                                    sadRadioButtonId.checked = false
+//                                    worriedRadioButtonId.checked = false
+//                                    fearfulRadioButtonId.checked = false
+//                                    angryRadioButtonId.checked = false
+//                                    physicalActivityInputTextFieldId.text = "0"
+//                                    notesTextAreaId.text = "Enter Notes here"
+//                                    dayPopupId.dataStatusText = "No data"
+                                      DB.setDefaultValues()
                                 }
 
                                 else

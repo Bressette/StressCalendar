@@ -13,3 +13,22 @@ function insertData(tx, isoDateString, moodNumber, physicalActivityNumber, notes
 {
     tx.executeSql('REPLACE INTO day (date, mood, physicalActivity, notes) VALUES(?,?,?,?);', [isoDateString, moodNumber, physicalActivityNumber, notesString])
 }
+
+function selectDayData(tx, date)
+{
+    var selectStatement = 'SELECT * FROM day WHERE date = ' + date
+    return tx.executeSql(selectStatement)
+}
+
+function setDefaultValues()
+{
+    joyRadioButtonId.checked = false
+    happyRadioButtonId.checked = false
+    sadRadioButtonId.checked = false
+    worriedRadioButtonId.checked = false
+    fearfulRadioButtonId.checked = false
+    angryRadioButtonId.checked = false
+    physicalActivityInputTextFieldId.text = "0"
+    notesTextAreaId.text = "Enter Notes here"
+    dayPopupId.dataStatusText = "No data"
+}
