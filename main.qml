@@ -219,6 +219,63 @@ Window {
 
         }
 
+        Rectangle
+        {
+            id: lineSeparatorRectId
+            width: parent.width / 100
+            height: parent.height
+            color: "black"
+            anchors.left: physcialActivityInputId.right
+            anchors.leftMargin: 10
+        }
+
+        Rectangle
+        {
+            id: previousDayRectId
+            width: parent.width / 8
+            height: parent.height / 15
+            color: "white"
+            border.color: "black"
+            border.width: 2
+            anchors.left: lineSeparatorRectId.right
+            anchors.leftMargin: 5
+
+            MouseArea
+            {
+                anchors.fill: parent
+
+                onClicked:
+                {
+                    console.log("Populate fields with data from previous day")
+                }
+            }
+
+
+
+            Text
+            {
+                id: previousDayText
+                width: parent.width
+                height: parent.height
+                text: "Previous Day"
+                anchors.centerIn: parent
+                font.pointSize: 100
+                minimumPointSize: 10
+                fontSizeMode: Text.Fit
+            }
+
+            TextArea
+            {
+                id: notesTextAreaId
+                width: rootId.width - lineSeparatorRectId.x * 1.2
+                height: rootId.height - previousDayRectId.height * 2
+                anchors.top: previousDayRectId.bottom
+                anchors.topMargin: 10
+                text: "Enter notes here"
+                font.pointSize: 10
+            }
+        }
+
         property int testProp : 4
 
 
