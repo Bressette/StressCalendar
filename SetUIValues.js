@@ -11,9 +11,8 @@ function setDefaultValues()
     dayPopupId.dataStatusText = "No data"
 }
 
-function setRadioButton(result)
+function setRadioButton(dbRadioButtonSelection)
 {
-    var dbRadioButtonSelection = result.rows.item(0).mood
     switch(dbRadioButtonSelection)
     {
         case 0:
@@ -34,4 +33,12 @@ function setRadioButton(result)
         case 5:
             angryRadioButtonId.checked = true
     }
+}
+
+function setValuesFromQuery(result)
+{
+    var dbRadioButtonSelection = result.rows.item(0).mood
+    setRadioButton(dbRadioButtonSelection)
+    physicalActivityInputTextFieldId.text = result.rows.item(0).physicalActivity
+    notesTextAreaId.text = result.rows.item(0).notes
 }

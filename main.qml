@@ -119,7 +119,6 @@ Window {
 
                                 DB.createTable(tx)
                                 DB.insertData(tx, 2020-06-23, 3, 54, "Some very epic new new text")
-                                //var result = tx.executeSql('SELECT * FROM day WHERE date = 2020-06-23')
                                 var result = DB.selectDayData(tx, 2020-06-23)
 
 
@@ -131,11 +130,7 @@ Window {
 
                                 else
                                 {
-                                    SetVals.setRadioButton(result)
-                                    var dbPhysicalActivityAmount = result.rows.item(0).physicalActivity
-                                    var dbNotes = result.rows.item(0).notes
-                                    physicalActivityInputTextFieldId.text = dbPhysicalActivityAmount
-                                    notesTextAreaId.text = dbNotes
+                                    SetVals.setValuesFromQuery(result)
                                 }
 
 
