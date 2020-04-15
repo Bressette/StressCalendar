@@ -119,21 +119,12 @@ Window {
                                 DB.createTable(tx)
                                 DB.insertData(tx, 2020-06-23, 3, 54, "Some very epic new new text")
                                 //var result = tx.executeSql('SELECT * FROM day WHERE date = 2020-06-23')
-                                var result = DB.selectDayData(tx, 2020-08-23)
+                                var result = DB.selectDayData(tx, 2020-06-23)
 
 
 
                                 if(!(result.rows.length > 0))
                                 {
-//                                    joyRadioButtonId.checked = false
-//                                    happyRadioButtonId.checked = false
-//                                    sadRadioButtonId.checked = false
-//                                    worriedRadioButtonId.checked = false
-//                                    fearfulRadioButtonId.checked = false
-//                                    angryRadioButtonId.checked = false
-//                                    physicalActivityInputTextFieldId.text = "0"
-//                                    notesTextAreaId.text = "Enter Notes here"
-//                                    dayPopupId.dataStatusText = "No data"
                                       DB.setDefaultValues()
                                 }
 
@@ -144,26 +135,7 @@ Window {
                                     var dbPhysicalActivityAmount = result.rows.item(0).physicalActivity
                                     var dbNotes = result.rows.item(0).notes
 
-                                    switch(dbRadioButtonSelection)
-                                    {
-                                        case 0:
-                                            joyRadioButtonId.checked = true
-                                            break
-                                        case 1:
-                                            happyRadioButtonId.checked = true
-                                            break
-                                        case 2:
-                                            sadRadioButtonId.checked = true
-                                            break
-                                        case 3:
-                                            worriedRadioButtonId.checked = true
-                                            break;
-                                        case 4:
-                                            fearfulRadioButtonId.checked = true
-                                            break
-                                        case 5:
-                                            angryRadioButtonId.checked = true
-                                    }
+                                    DB.setRadioButton(dbRadioButtonSelection)
 
                                     physicalActivityInputTextFieldId.text = dbPhysicalActivityAmount
                                     notesTextAreaId.text = dbNotes

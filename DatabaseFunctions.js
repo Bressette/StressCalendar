@@ -32,3 +32,27 @@ function setDefaultValues()
     notesTextAreaId.text = "Enter Notes here"
     dayPopupId.dataStatusText = "No data"
 }
+
+function setRadioButton(dbRadioButtonSelection)
+{
+    switch(dbRadioButtonSelection)
+    {
+        case 0:
+            joyRadioButtonId.checked = true
+            break
+        case 1:
+            happyRadioButtonId.checked = true
+            break
+        case 2:
+            sadRadioButtonId.checked = true
+            break
+        case 3:
+            worriedRadioButtonId.checked = true
+            break;
+        case 4:
+            fearfulRadioButtonId.checked = true
+            break
+        case 5:
+            angryRadioButtonId.checked = true
+    }
+}
