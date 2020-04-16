@@ -117,7 +117,7 @@ Window {
                             {
 
                                 DB.createTable(tx)
-                                var result = DB.selectDayData(tx, 2020-10-23)
+                                var result = DB.selectDayData(tx, 2020-06-23)
 
                                 if(!(result.rows.length > 0))
                                 {
@@ -223,245 +223,24 @@ Window {
             textSize: graphSidebarId.height / 50
         }
 
-        ColumnLayout
+
+        RadioGroup
         {
-            anchors.left: emoticonsInputLayoutId.right
-
-
-            RadioButton
-            {
-                id: joyRadioButtonId
-
-
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 3
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        happyRadioButtonId.checked = false
-                        sadRadioButtonId.checked = false
-                        worriedRadioButtonId.checked = false
-                        fearfulRadioButtonId.checked = false
-                        angryRadioButtonId.checked = false
-                    }
-                }
-
-
-
-            }
-
-            RadioButton
-            {
-                id: happyRadioButtonId
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        joyRadioButtonId.checked = false
-                        sadRadioButtonId.checked = false
-                        worriedRadioButtonId.checked = false
-                        fearfulRadioButtonId.checked = false
-                        angryRadioButtonId.checked = false
-                    }
-                }
-            }
-
-            RadioButton
-            {
-                id: sadRadioButtonId
-
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        joyRadioButtonId.checked = false
-                        happyRadioButtonId.checked = false
-                        worriedRadioButtonId.checked = false
-                        fearfulRadioButtonId.checked = false
-                        angryRadioButtonId.checked = false
-                    }
-                }
-            }
-
-            RadioButton
-            {
-                id: worriedRadioButtonId
-
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        joyRadioButtonId.checked = false
-                        sadRadioButtonId.checked = false
-                        happyRadioButtonId.checked = false
-                        fearfulRadioButtonId.checked = false
-                        angryRadioButtonId.checked = false
-                    }
-                }
-            }
-
-            RadioButton
-            {
-                id: fearfulRadioButtonId
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        joyRadioButtonId.checked = false
-                        sadRadioButtonId.checked = false
-                        happyRadioButtonId.checked = false
-                        worriedRadioButtonId.checked = false
-                        angryRadioButtonId.checked = false
-                    }
-                }
-            }
-
-            RadioButton
-            {
-                id: angryRadioButtonId
-
-
-                style: RadioButtonStyle {
-                        indicator: Rectangle {
-                                implicitWidth: emoticonsInputLayoutId.imageSize / 2
-                                implicitHeight: emoticonsInputLayoutId.imageSize / 2
-                                radius: implicitHeight / 2
-                                border.color: control.activeFocus ? "darkblue" : "gray"
-                                border.width: 1
-                                Rectangle {
-                                    anchors.fill: parent
-                                    visible: control.checked
-                                    color: "#555"
-                                    radius: parent.radius
-                                    anchors.margins: 4
-                                }
-                        }
-                }
-
-                Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
-                Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-
-                onCheckedChanged: {
-                    if(checked === true)
-                    {
-                        joyRadioButtonId.checked = false
-                        sadRadioButtonId.checked = false
-                        happyRadioButtonId.checked = false
-                        worriedRadioButtonId.checked = false
-                        fearfulRadioButtonId.checked = false
-                    }
-                }
-            }
+            id: radioGroupId
+            joyChecked: false
+            happyChecked: false
+            sadChecked: false
+            worriedChecked: false
+            fearfulChecked: false
+            angryChecked: false
+            //TODO: Create property for the checked property of every radio button and change it from javascript
         }
+
 
         Text
         {
             id: physcialActivityInputId
             width: moodTitleId.width
-
             anchors.top: emoticonsInputLayoutId.bottom
             anchors.left: parent.left
 
@@ -481,8 +260,6 @@ Window {
             anchors.top: physcialActivityInputId.bottom
             validator: IntValidator {bottom: 0;}
             font.pointSize: height / 3
-
-
         }
 
         Rectangle
@@ -495,41 +272,6 @@ Window {
             anchors.leftMargin: 10
         }
 
-//        Rectangle
-//        {
-//            id: previousDayRectId
-//            width: parent.width / 8
-//            height: parent.height / 15
-//            color: "grey"
-//            anchors.left: lineSeparatorRectId.right
-//            anchors.leftMargin: 5
-
-//            MouseArea
-//            {
-//                anchors.fill: parent
-
-//                onClicked:
-//                {
-//                    console.log("Populate fields with data from previous day")
-//                }
-//            }
-
-
-
-//            Text
-//            {
-//                id: previousDayText
-//                width: parent.width
-//                height: parent.height
-//                text: "Previous Day"
-//                anchors.centerIn: parent
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                font.pointSize: 100
-//                minimumPointSize: 10
-//                fontSizeMode: Text.Fit
-//            }
-//        }
 
         NavigationButton
         {

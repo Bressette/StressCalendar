@@ -13,5 +13,6 @@
         <file>DatabaseFunctions.js</file>
         <file>SetUIValues.js</file>
         <file>NavigationButton.qml</file>
+        <file>RadioGroup.qml</file>
     </qresource>
 </RCC>

@@ -11,22 +11,22 @@ function setRadioButton(dbRadioButtonSelection)
     switch(dbRadioButtonSelection)
     {
         case 0:
-            joyRadioButtonId.checked = true
+            radioGroupId.joyChecked = true
             break
         case 1:
-            happyRadioButtonId.checked = true
+            radioGroupId.happyChecked = true
             break
         case 2:
-            sadRadioButtonId.checked = true
+            radioGroupId.sadChecked = true
             break
         case 3:
-            worriedRadioButtonId.checked = true
+            radioGroupId.worriedChecked = true
             break;
         case 4:
-            fearfulRadioButtonId.checked = true
+            radioGroupId.fearfulChecked = true
             break
         case 5:
-            angryRadioButtonId.checked = true
+            radioGroupId.angryChecked = true
             break
         case 6:
             setRadioButtonsFalse()
@@ -40,14 +40,15 @@ function setValuesFromQuery(result)
     setRadioButton(dbRadioButtonSelection)
     physicalActivityInputTextFieldId.text = result.rows.item(0).physicalActivity
     notesTextAreaId.text = result.rows.item(0).notes
+    dayPopupId.dataStatusText = "Holds data"
 }
 
 function setRadioButtonsFalse()
 {
-    joyRadioButtonId.checked = false
-    happyRadioButtonId.checked = false
-    sadRadioButtonId.checked = false
-    worriedRadioButtonId.checked = false
-    fearfulRadioButtonId.checked = false
-    angryRadioButtonId.checked = false
+    radioGroupId.joyChecked = false
+    radioGroupId.happyChecked = false
+    radioGroupId.sadChecked = false
+    radioGroupId.worriedChecked = false
+    radioGroupId.fearfulChecked = false
+    radioGroupId.angryChecked = false
 }
