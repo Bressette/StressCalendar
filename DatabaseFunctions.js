@@ -1,3 +1,5 @@
+
+
 function getDatabaseConnection()
 {
     var db = LocalStorage.openDatabaseSync("CalendarDB", "1.0", "CalendarDB", 1000000)
@@ -20,4 +22,26 @@ function selectDayData(tx, date)
     return tx.executeSql(selectStatement)
 }
 
+function getDataForDate()
+{
+    var db = getDatabaseConnection()
+    db.transaction(
+                function(tx)
+                {
 
+                    createTable(tx)
+                    var result = selectDayData(tx, enterInputRectId.isoDate)
+
+                    if(!(result.rows.length > 0))
+                    {
+                          SetVals.setDefaultValues()
+                    }
+
+                    else
+                    {
+                        SetVals.setValuesFromQuery(result)
+                        console.log(result.rows.item(0).mood)
+                    }
+                }
+            )
+}
