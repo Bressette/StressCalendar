@@ -70,6 +70,9 @@ Rectangle
                 console.log("In onclick")
                 calendarScreenId.visible = false
                 userInputObjectId.visible = true
+                userInputObjectId.day = enterInputRectId.day
+                userInputObjectId.month = enterInputRectId.month
+                userInputObjectId.year = enterInputRectId.year
                 //calendarScreenId.visible = false
             }
         }

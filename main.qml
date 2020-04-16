@@ -115,10 +115,13 @@ Window {
                 const day = selectedDate.getDate()
                 const month = selectedDate.getMonth() + 1
                 const year = selectedDate.getFullYear()
-                enterInputRectId.day = day.toString()
-                enterInputRectId.month = month.toString()
-                enterInputRectId.year = year.toString()
-                DB.getDataForDate()
+                enterInputRectId.day = day
+                enterInputRectId.month = month
+                enterInputRectId.year = year
+                userInputObjectId.day = enterInputRectId.day
+                userInputObjectId.month = enterInputRectId.month
+                userInputObjectId.year = enterInputRectId.year
+                DB.getDataForDate(enterInputRectId.isoDate)
                 enterInputRectId.visible = true
             }
 
@@ -142,9 +145,9 @@ Window {
             color: "transparent"
             anchors.centerIn: calendarId
 
-            property string day
-            property string month
-            property string year
+            property int day
+            property int month
+            property int year
             property string isoDate : year + "-" + month + "-" + day
 
 
@@ -191,6 +194,11 @@ Window {
 
         physicalActivityTextFieldText: "0"
         notesTextAreaText: "Enter notes here"
+
+        day : "01"
+        month : "01"
+        year : "1970"
+
     }
 
 }

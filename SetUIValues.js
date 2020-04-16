@@ -52,3 +52,21 @@ function setRadioButtonsFalse()
     userInputObjectId.fearfulCheckedVal = false
     userInputObjectId.angryCheckedVal = false
 }
+
+function getRadioButtonSelection()
+{
+    if(userInputObjectId.joyCheckedVal === true)
+        return 0
+    else if(userInputObjectId.happyCheckedVal === true)
+        return 1
+    else if(userInputObjectId.sadCheckedVal === true)
+        return 2
+    else if(userInputObjectId.worriedCheckedVal === true)
+        return 3
+    else if(userInputObjectId.fearfulCheckedVal === true)
+        return 4
+    else if(userInputObjectId.angryCheckedVal === true)
+        return 5
+    else
+        return 6
+}

@@ -5,6 +5,9 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 import QtQuick.LocalStorage 2.12
 
+import "DatabaseFunctions.js" as DB
+import "SetUIValues.js" as SetVals
+
 Rectangle
 {
     id: userInputScreenId
@@ -20,6 +23,15 @@ Rectangle
 
     property var physicalActivityTextFieldText
     property var notesTextAreaText
+
+    property var day
+    property var month
+    property var year
+
+    onVisibleChanged: {
+        userInputDateTextId.text = month + "/" + day + "/" + year
+    }
+
 
     EmoticonsLayout
     {
@@ -141,9 +153,7 @@ Rectangle
             id: userInputDateTextId
             width: parent.width
             height: parent.height
-            property string day : enterInputRectId.day
-            property string month : enterInputRectId.month
-            property string year : enterInputRectId.year
+
 
             text: month + "/" + day + "/" + year
             anchors.centerIn: parent
@@ -178,6 +188,7 @@ Rectangle
                 calendarScreenId.visible = true
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
+
                 console.log("Switch back to the calendar screen")
             }
         }
@@ -199,6 +210,19 @@ Rectangle
 
             onClicked:
             {
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesTextAreaId.text)
+
+                const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
+                date.setDate(date.getDate() + 1)
+                enterInputRectId.day = date.getUTCDate()
+                enterInputRectId.month = date.getUTCMonth()
+                enterInputRectId.year = date.getUTCFullYear()
+
+                const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
+
+                DB.getDataForDate(isoDate)
+                userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
+                console.log("In next day button")
                 console.log("Populate fields with data from next day")
             }
         }

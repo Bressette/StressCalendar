@@ -22,7 +22,7 @@ function selectDayData(tx, date)
     return tx.executeSql(selectStatement)
 }
 
-function getDataForDate()
+function getDataForDate(isoDate)
 {
     var db = getDatabaseConnection()
     db.transaction(
@@ -30,7 +30,7 @@ function getDataForDate()
                 {
 
                     createTable(tx)
-                    var result = selectDayData(tx, enterInputRectId.isoDate)
+                    var result = selectDayData(tx, isoDate)
 
                     if(!(result.rows.length > 0))
                     {
