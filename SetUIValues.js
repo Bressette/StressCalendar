@@ -1,8 +1,8 @@
 function setDefaultValues()
 {
     setRadioButtonsFalse()
-    physicalActivityInputTextFieldId.text = "0"
-    notesTextAreaId.text = "Enter Notes here"
+    userInputObjectId.physicalActivityTextFieldText = "0"
+    userInputObjectId.notesTextAreaText = "Enter Notes here"
     dayPopupId.dataStatusText = "No data"
 }
 
@@ -11,22 +11,22 @@ function setRadioButton(dbRadioButtonSelection)
     switch(dbRadioButtonSelection)
     {
         case 0:
-            radioGroupId.joyChecked = true
+            userInputObjectId.joyCheckedVal = true
             break
         case 1:
-            radioGroupId.happyChecked = true
+            userInputObjectId.happyCheckedVal = true
             break
         case 2:
-            radioGroupId.sadChecked = true
+            userInputObjectId.sadCheckedVal = true
             break
         case 3:
-            radioGroupId.worriedChecked = true
+            userInputObjectId.worriedCheckedVal = true
             break;
         case 4:
-            radioGroupId.fearfulChecked = true
+            userInputObjectId.fearfulCheckedVal = true
             break
         case 5:
-            radioGroupId.angryChecked = true
+            userInputObjectId.angryCheckedVal = true
             break
         case 6:
             setRadioButtonsFalse()
@@ -38,17 +38,17 @@ function setValuesFromQuery(result)
 {
     var dbRadioButtonSelection = result.rows.item(0).mood
     setRadioButton(dbRadioButtonSelection)
-    physicalActivityInputTextFieldId.text = result.rows.item(0).physicalActivity
-    notesTextAreaId.text = result.rows.item(0).notes
+    userInputObjectId.physicalActivityTextFieldText = result.rows.item(0).physicalActivity
+    userInputObjectId.notesTextAreaText = result.rows.item(0).notes
     dayPopupId.dataStatusText = "Holds data"
 }
 
 function setRadioButtonsFalse()
 {
-    radioGroupId.joyChecked = false
-    radioGroupId.happyChecked = false
-    radioGroupId.sadChecked = false
-    radioGroupId.worriedChecked = false
-    radioGroupId.fearfulChecked = false
-    radioGroupId.angryChecked = false
+    userInputObjectId.joyCheckedVal = false
+    userInputObjectId.happyCheckedVal = false
+    userInputObjectId.sadCheckedVal = false
+    userInputObjectId.worriedCheckedVal = false
+    userInputObjectId.fearfulCheckedVal = false
+    userInputObjectId.angryCheckedVal = false
 }

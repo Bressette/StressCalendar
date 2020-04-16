@@ -69,7 +69,7 @@ Rectangle
             {
                 console.log("In onclick")
                 calendarScreenId.visible = false
-                userInputScreenId.visible = true
+                userInputObjectId.visible = true
                 //calendarScreenId.visible = false
             }
         }
