@@ -111,6 +111,18 @@ Rectangle
 
             onClicked:
             {
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesTextAreaId.text)
+
+                const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
+                date.setDate(date.getDate() - 1)
+                enterInputRectId.day = date.getUTCDate()
+                enterInputRectId.month = date.getUTCMonth()
+                enterInputRectId.year = date.getUTCFullYear()
+
+                const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
+                DB.getDataForDate(isoDate)
+                userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
+
                 console.log("Populate fields with data from previous day")
             }
         }
