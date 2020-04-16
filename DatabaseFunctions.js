@@ -45,3 +45,16 @@ function getDataForDate()
                 }
             )
 }
+
+function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber, notesString)
+{
+    var db = getDatabaseConnection()
+    db.transaction(
+                function(tx)
+                {
+                    insertData(tx, isoDateString, moodNumber, physicalActivityNumber, notesString)
+                }
+                    )
+}
+
+
