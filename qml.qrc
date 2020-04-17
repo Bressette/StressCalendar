@@ -15,5 +15,6 @@
         <file>NavigationButton.qml</file>
         <file>RadioGroup.qml</file>
         <file>UserInputScreen.qml</file>
+        <file>GraphBar.qml</file>
     </qresource>
 </RCC>

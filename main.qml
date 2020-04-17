@@ -68,6 +68,11 @@ Window {
                 textEnabled: false
             }
 
+            GraphBar
+            {
+                textContent: "10"
+            }
+
 
             //Physical Activity title text that contains "Physical Activity"
             Text

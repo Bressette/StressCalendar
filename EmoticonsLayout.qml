@@ -13,8 +13,6 @@ ColumnLayout
     property bool textEnabled
     property double textSize
 
-
-
     Image
     {
         id: joyId
