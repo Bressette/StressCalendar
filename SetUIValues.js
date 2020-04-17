@@ -86,4 +86,20 @@ function setRadioButtonsFalse()
     userInputObjectId.angryCheckedVal = false
 }
 
+function setDefaultEmoticonGraphValues()
+{
+    joyBarWidth = 0
+    joyBarText = "0"
+    happyBarWidth = 0
+    happyBarText = "0"
+    sadBarWidth = 0
+    sadBarText = "0"
+    worriedBarWidth = 0
+    worriedBarText = "0"
+    fearfulBarWidth = 0
+    fearfulBarText = "0"
+    angryBarWidth = 0
+    angryBarText = "0"
+}
+
 

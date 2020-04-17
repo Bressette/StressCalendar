@@ -45,8 +45,6 @@ Item
         color: "orange"
         anchors.top: parent.top
         anchors.topMargin: imageSize / 9
-
-
     }
 
     GraphBar

@@ -62,4 +62,6 @@ function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber
                     )
 }
 
+function setEmoticonGraphValues
+
 
