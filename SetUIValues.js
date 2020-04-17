@@ -101,4 +101,33 @@ function setDefaultEmoticonGraphValues()
     angryBarText = "0"
 }
 
+function setIsoDate(year, month, day)
+{
+    var isoMonth = month
+    var isoDay = day
+
+    if(month < 10)
+    {
+        isoMonth = "0" + month
+    }
+
+    if(day < 10)
+    {
+        isoDay = "0" + day
+    }
+
+    var isoDate = year + "-" + isoMonth + "-" + isoDay
+    return isoDate
+}
+
+function setIsoMonth(month)
+{
+    if(month < 10)
+    {
+        return ("0" + month)
+    }
+
+    else
+        return month
+}
 

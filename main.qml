@@ -146,12 +146,10 @@ Window {
                 userInputObjectId.day = enterInputRectId.day
                 userInputObjectId.month = enterInputRectId.month
                 userInputObjectId.year = enterInputRectId.year
-                console.log("isoDate is: " + enterInputRectId.isoDate)
                 DB.getDataForDate(enterInputRectId.isoDate)
 
-                var array = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
-                console.log(array[0])
-
+                var resultArray = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
+                console.log(resultArray[0])
 
                 enterInputRectId.visible = true
             }
@@ -176,44 +174,44 @@ Window {
             color: "transparent"
             anchors.centerIn: calendarId
 
-            function setIsoDate(year, month, day)
-            {
-                var isoMonth = month
-                var isoDay = day
+//            function setIsoDate(year, month, day)
+//            {
+//                var isoMonth = month
+//                var isoDay = day
 
-                if(month < 10)
-                {
-                    isoMonth = "0" + month
-                }
+//                if(month < 10)
+//                {
+//                    isoMonth = "0" + month
+//                }
 
-                if(day < 10)
-                {
-                    isoDay = "0" + day
-                }
+//                if(day < 10)
+//                {
+//                    isoDay = "0" + day
+//                }
 
-                var isoDate = year + "-" + isoMonth + "-" + isoDay
-                return isoDate
-            }
+//                var isoDate = year + "-" + isoMonth + "-" + isoDay
+//                return isoDate
+//            }
 
-            function setIsoMonth(month)
-            {
-                if(month < 10)
-                {
-                    return ("0" + month)
-                }
+//            function setIsoMonth(month)
+//            {
+//                if(month < 10)
+//                {
+//                    return ("0" + month)
+//                }
 
-                else
-                    return month
-            }
+//                else
+//                    return month
+//            }
 
 
             property int day
             property int month
             property int year
 
-            property string isoMonth : setIsoMonth(month)
+            property string isoMonth : SetVals.setIsoMonth(month)
 
-            property string isoDate : setIsoDate(year, month, day)
+            property string isoDate : SetVals.setIsoDate(year, month, day)
 
 
 

@@ -61,6 +61,7 @@ function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber
 }
 
 //the Sqlite function strftime does not exist in the qt quick implementation fo sqlite and can't be used to sort by the month making sorting by month more difficult
+//this function returns an array of the mood values for a given month
 function getEmoticonGraphValues(month)
 {
     var monthArray = []
@@ -77,18 +78,12 @@ function getEmoticonGraphValues(month)
                     {
                         var date = result.rows.item(i).date
                         var dbMonth = date.substring(5,7)
-                        console.log("The value of dbMonth is: " + dbMonth)
-                        console.log("The value of month is: " + month)
                         if(dbMonth === month)
                         {
                             monthArray[monthArrayCounter] = result.rows.item(i).mood
                             monthArrayCounter++
                         }
                     }
-                    console.log(monthArray[0])
-
-
-//
                 }
             )
     return monthArray
