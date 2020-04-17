@@ -1,5 +1,3 @@
-
-
 function getDatabaseConnection()
 {
     var db = LocalStorage.openDatabaseSync("CalendarDB", "1.0", "CalendarDB", 1000000)
@@ -62,17 +60,38 @@ function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber
                     )
 }
 
+//the Sqlite function strftime does not exist in the qt quick implementation fo sqlite and can't be used to sort by the month making sorting by month more difficult
 function getEmoticonGraphValues(month)
 {
+    var monthArray = []
     var db = getDatabaseConnection()
     db.transaction(
                 function(tx)
                 {
                     createTable(tx)
-                    var result = tx.executeSql('SELECT mood FROM day WHERE MONTH(date) = ' + month)
-                    return result
+                    var result = tx.executeSql("SELECT * FROM day")
+
+
+                    var monthArrayCounter = 0
+                    for(var i = 0; i < result.rows.length; i++)
+                    {
+                        var date = result.rows.item(i).date
+                        var dbMonth = date.substring(5,7)
+                        console.log("The value of dbMonth is: " + dbMonth)
+                        console.log("The value of month is: " + month)
+                        if(dbMonth === month)
+                        {
+                            monthArray[monthArrayCounter] = result.rows.item(i).mood
+                            monthArrayCounter++
+                        }
+                    }
+                    console.log(monthArray[0])
+
+
+//
                 }
             )
+    return monthArray
 }
 
 

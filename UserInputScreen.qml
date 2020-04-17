@@ -122,7 +122,6 @@ Rectangle
                 userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
                 radioGroupId.visible = false
                 radioGroupId.visible = true
-                console.log("Values are: ", physicalActivityInputTextFieldId.text, notesTextAreaId.text)
             }
         }
     }
@@ -205,9 +204,6 @@ Rectangle
                 calendarScreenId.visible = true
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
-
-
-                console.log("Switch back to the calendar screen")
             }
         }
     }

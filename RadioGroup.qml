@@ -10,7 +10,6 @@ ColumnLayout
 
 
     onVisibleChanged: {
-        console.log("Visible change " + userInputScreenId.joyCheckedVal + userInputScreenId.happyCheckedVal + userInputScreenId.sadCheckedVal + userInputScreenId.worriedCheckedVal + userInputScreenId.fearfulCheckedVal + userInputScreenId.angryCheckedVal)
         joyRadioButtonId.checked = userInputScreenId.joyCheckedVal
         happyRadioButtonId.checked = userInputScreenId.happyCheckedVal
         sadRadioButtonId.checked = userInputScreenId.sadCheckedVal

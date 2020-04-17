@@ -7,6 +7,7 @@ import QtQuick.LocalStorage 2.12
 import "DatabaseFunctions.js" as DB
 import "SetUIValues.js" as SetVals
 
+
 //window that displays a window that contains the rest of the UI elements
 Window {
     visible: true
@@ -46,7 +47,7 @@ Window {
                 horizontalAlignment: Text.AlignHCenter
                 anchors.left: parent.left
 
-                text: qsTr("Monthly Progress")
+                text: qsTr("Mood Progress")
                 font.pointSize: parent.width / 8
                 wrapMode: Text.WordWrap
             }
@@ -116,6 +117,8 @@ Window {
         }
 
 
+
+
         //built in calendar QML type that displays the current month with default Calendar behavior
         Calendar
         {
@@ -125,8 +128,15 @@ Window {
 
             anchors.right: parent.right
 
+
+
+
+
             onClicked:
             {
+
+
+
                 const day = selectedDate.getDate()
                 const month = selectedDate.getMonth() + 1
                 const year = selectedDate.getFullYear()
@@ -136,7 +146,11 @@ Window {
                 userInputObjectId.day = enterInputRectId.day
                 userInputObjectId.month = enterInputRectId.month
                 userInputObjectId.year = enterInputRectId.year
+                console.log("isoDate is: " + enterInputRectId.isoDate)
                 DB.getDataForDate(enterInputRectId.isoDate)
+
+                var array = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
+                console.log(array[0])
 
 
                 enterInputRectId.visible = true
@@ -162,10 +176,45 @@ Window {
             color: "transparent"
             anchors.centerIn: calendarId
 
+            function setIsoDate(year, month, day)
+            {
+                var isoMonth = month
+                var isoDay = day
+
+                if(month < 10)
+                {
+                    isoMonth = "0" + month
+                }
+
+                if(day < 10)
+                {
+                    isoDay = "0" + day
+                }
+
+                var isoDate = year + "-" + isoMonth + "-" + isoDay
+                return isoDate
+            }
+
+            function setIsoMonth(month)
+            {
+                if(month < 10)
+                {
+                    return ("0" + month)
+                }
+
+                else
+                    return month
+            }
+
+
             property int day
             property int month
             property int year
-            property string isoDate : year + "-" + month + "-" + day
+
+            property string isoMonth : setIsoMonth(month)
+
+            property string isoDate : setIsoDate(year, month, day)
+
 
 
             //this mouse area represents the outside of the edit button and exits the popup when clicked
@@ -174,7 +223,6 @@ Window {
                 anchors.fill: parent
                 onClicked:
                 {
-                    console.log("Exiting the input rect " + enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year)
                     enterInputRectId.visible = false
                 }
             }

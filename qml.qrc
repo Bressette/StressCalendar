@@ -17,5 +17,6 @@
         <file>UserInputScreen.qml</file>
         <file>GraphBar.qml</file>
         <file>EmoticonsGraph.qml</file>
+        <file>DateUtils.qml</file>
     </qresource>
 </RCC>
