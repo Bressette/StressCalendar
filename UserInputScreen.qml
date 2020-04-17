@@ -204,6 +204,9 @@ Rectangle
                 calendarScreenId.visible = true
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
+                SetVals.setEmoticonValues()
+                emoticonsGraphId.visible = false
+                emoticonsGraphId.visible = true
             }
         }
     }

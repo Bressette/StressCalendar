@@ -72,6 +72,7 @@ Window {
             EmoticonsGraph
             {
                 id: emoticonsGraphId
+
                 joyBarWidth: 10
                 joyBarText: "0"
                 happyBarWidth: 10
@@ -84,6 +85,7 @@ Window {
                 fearfulBarText: "0"
                 angryBarWidth: 10
                 angryBarText: "0"
+
             }
 
             //Physical Activity title text that contains "Physical Activity"
@@ -230,6 +232,7 @@ Window {
         year : "1970"
 
     }
+
 
 }
 
