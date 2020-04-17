@@ -47,7 +47,7 @@ Window {
                 horizontalAlignment: Text.AlignHCenter
                 anchors.left: parent.left
 
-                text: qsTr("Mood Progress")
+                text: qsTr("Monthly Progress")
                 font.pointSize: parent.width / 8
                 wrapMode: Text.WordWrap
             }

@@ -208,3 +208,79 @@ function setEmoticonValues()
 
 }
 
+function setPhysicalActivityValues()
+{
+    var physicalActivityArray = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
+    var max = 0
+    var weeklyPhysicalActivityAmounts = [0,0,0,0,0,0]
+
+    if(moodArray[0] === -1)
+    {
+        emoticonsGraphId.joyBarWidth = 10
+        emoticonsGraphId.joyBarText = "0"
+        emoticonsGraphId.happyBarWidth = 10
+        emoticonsGraphId.happyBarText = "0"
+        emoticonsGraphId.sadBarWidth = 10
+        emoticonsGraphId.sadBarText = "0"
+        emoticonsGraphId.worriedBarWidth = 10
+        emoticonsGraphId.worriedBarText = "0"
+        emoticonsGraphId.fearfulBarWidth = 10
+        emoticonsGraphId.fearfulBarText = "0"
+        emoticonsGraphId.angryBarWidth = 10
+        emoticonsGraphId.angryBarText = "0"
+    }
+
+    else
+    {
+        for(var i in moodArray)
+        {
+            switch(moodArray[i])
+            {
+            case 0:
+                moodAmounts[0] += 1
+                break
+            case 1:
+                moodAmounts[1] += 1
+                break
+            case 2:
+                moodAmounts[2] += 1
+                break
+            case 3:
+                moodAmounts[3] += 1
+                break
+            case 4:
+                moodAmounts[4] += 1
+                break
+            case 5:
+                moodAmounts[5] += 1
+                break
+            }
+        }
+
+        for(i in moodAmounts)
+        {
+            console.log("The value of " + i + " is: " + moodAmounts[i])
+            if(moodAmounts[i] > max)
+            {
+                max = moodAmounts[i]
+            }
+        }
+
+        console.log("The value of max is: " + max)
+
+        var widthRatio = (graphSidebarId.width / 2) / max
+        emoticonsGraphId.joyBarWidth = moodAmounts[0] * widthRatio + 10
+        emoticonsGraphId.joyBarText = moodAmounts[0]
+        emoticonsGraphId.happyBarWidth = moodAmounts[1] * widthRatio + 10
+        emoticonsGraphId.happyBarText = moodAmounts[1]
+        emoticonsGraphId.sadBarWidth = moodAmounts[2] * widthRatio + 10
+        emoticonsGraphId.sadBarText = moodAmounts[2]
+        emoticonsGraphId.worriedBarWidth = moodAmounts[3] * widthRatio + 10
+        emoticonsGraphId.worriedBarText = moodAmounts[3]
+        emoticonsGraphId.fearfulBarWidth = moodAmounts[4] * widthRatio + 10
+        emoticonsGraphId.fearfulBarText = moodAmounts[4]
+        emoticonsGraphId.angryBarWidth = moodAmounts[5] * widthRatio + 10
+        emoticonsGraphId.angryBarText = moodAmounts[5]
+    }
+
+}

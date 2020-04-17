@@ -89,4 +89,30 @@ function getEmoticonGraphValues(month)
     return monthArray
 }
 
+function getPhysicalActivityValues(month)
+{
+    var physicalActivityArray = [-1]
+    var db = getDatabaseConnection()
+    db.transaction(
+                function(tx)
+                {
+                    createTable(tx)
+                    var result = tx.executeSql("SELECT * FROM day")
+
+                    var physicalActivityCounter = 0
+                    for(var i = 0; i < result.rows.length; i++)
+                    {
+                        var date = result.rows.item(i).date
+                        var dbMonth = date.substring(5,7)
+                        if(dbMonth === month)
+                        {
+                            physicalActivityArray[physicalActivityCounter] = result.rows.item(i).physicalActivity
+                            physicalActivityCounter++
+                        }
+                    }
+                }
+            )
+    return physicalActivityArray
+}
+
 
