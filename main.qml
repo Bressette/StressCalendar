@@ -72,18 +72,18 @@ Window {
             EmoticonsGraph
             {
                 id: emoticonsGraphId
-                joyBarWidth: maxBarWidth
-                joyBarText: "10"
-                happyBarWidth: maxBarWidth
-                happyBarText: "10"
-                sadBarWidth: maxBarWidth
-                sadBarText: "10"
-                worriedBarWidth: maxBarWidth
-                worriedBarText: "10"
-                fearfulBarWidth: maxBarWidth
-                fearfulBarText: "10"
-                angryBarWidth: maxBarWidth
-                angryBarText: "10"
+                joyBarWidth: 10
+                joyBarText: "0"
+                happyBarWidth: 10
+                happyBarText: "0"
+                sadBarWidth: 10
+                sadBarText: "0"
+                worriedBarWidth: 10
+                worriedBarText: "0"
+                fearfulBarWidth: 10
+                fearfulBarText: "0"
+                angryBarWidth: 10
+                angryBarText: "0"
             }
 
             //Physical Activity title text that contains "Physical Activity"
@@ -148,6 +148,10 @@ Window {
                 userInputObjectId.month = enterInputRectId.month
                 userInputObjectId.year = enterInputRectId.year
                 DB.getDataForDate(enterInputRectId.isoDate)
+
+                SetVals.setEmoticonValues()
+                emoticonsGraphId.visible = false
+                emoticonsGraphId.visible = true
 
                 enterInputRectId.visible = true
             }

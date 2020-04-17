@@ -133,31 +133,31 @@ function setIsoMonth(month)
 
 function setEmoticonValues()
 {
-    var moodArray = DB.getEmoticonGraphValues()
+    var moodArray = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
     var max = 0
     var moodAmounts = [0,0,0,0,0,0]
 
     if(moodArray[0] === -1)
     {
-        emoticonsGraphId.joyBarWidth = 0
+        emoticonsGraphId.joyBarWidth = 10
         emoticonsGraphId.joyBarText = "0"
-        emoticonsGraphId.happyBarWidth = 0
+        emoticonsGraphId.happyBarWidth = 10
         emoticonsGraphId.happyBarText = "0"
-        emoticonsGraphId.sadBarWidth = 0
+        emoticonsGraphId.sadBarWidth = 10
         emoticonsGraphId.sadBarText = "0"
-        emoticonsGraphId.worriedBarWidth = 0
+        emoticonsGraphId.worriedBarWidth = 10
         emoticonsGraphId.worriedBarText = "0"
-        emoticonsGraphId.fearfulBarWidth = 0
+        emoticonsGraphId.fearfulBarWidth = 10
         emoticonsGraphId.fearfulBarText = "0"
-        emoticonsGraphId.angryBarWidth = 0
+        emoticonsGraphId.angryBarWidth = 10
         emoticonsGraphId.angryBarText = "0"
     }
 
     else
     {
-        for(i in moodArray)
+        for(var i in moodArray)
         {
-            switch(i)
+            switch(moodArray[i])
             {
             case 0:
                 moodAmounts[0] += 1
@@ -182,22 +182,27 @@ function setEmoticonValues()
 
         for(i in moodAmounts)
         {
-            if(i > max)
-                max = i
+            console.log("The value of " + i + " is: " + moodAmounts[i])
+            if(moodAmounts[i] > max)
+            {
+                max = moodAmounts[i]
+            }
         }
 
-        emoticonsGraphId.maxBarWidth = max
-        emoticonsGraphId.joyBarWidth = moodAmounts[0] / max
+        console.log("The value of max is: " + max)
+
+        var widthRatio = (graphSidebarId.width / 2) / max
+        emoticonsGraphId.joyBarWidth = moodAmounts[0] * widthRatio + 10
         emoticonsGraphId.joyBarText = moodAmounts[0]
-        emoticonsGraphId.happyBarWidth = moodAmounts[1] / max
+        emoticonsGraphId.happyBarWidth = moodAmounts[1] * widthRatio + 10
         emoticonsGraphId.happyBarText = moodAmounts[1]
-        emoticonsGraphId.sadBarWidth = moodAmounts[2] / max
+        emoticonsGraphId.sadBarWidth = moodAmounts[2] * widthRatio + 10
         emoticonsGraphId.sadBarText = moodAmounts[2]
-        emoticonsGraphId.worriedBarWidth = moodAmounts[3] / max
-        emoticonsGraphId.worreidBarText = moodAmounts[3]
-        emoticonsGraphId.fearfulBarWidth = moodAmounts[4] / max
+        emoticonsGraphId.worriedBarWidth = moodAmounts[3] * widthRatio + 10
+        emoticonsGraphId.worriedBarText = moodAmounts[3]
+        emoticonsGraphId.fearfulBarWidth = moodAmounts[4] * widthRatio + 10
         emoticonsGraphId.fearfulBarText = moodAmounts[4]
-        emoticonsGraphId.angryBarWidth = moodAmounts[5] / max
+        emoticonsGraphId.angryBarWidth = moodAmounts[5] * widthRatio + 10
         emoticonsGraphId.angryBarText = moodAmounts[5]
     }
 
