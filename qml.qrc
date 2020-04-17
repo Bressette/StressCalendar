@@ -16,5 +16,6 @@
         <file>RadioGroup.qml</file>
         <file>UserInputScreen.qml</file>
         <file>GraphBar.qml</file>
+        <file>EmoticonsGraph.qml</file>
     </qresource>
 </RCC>

@@ -8,8 +8,6 @@ Rectangle
     width: moodTitleId.implicitWidth / 2
     height: imageSize / 2
     color: "orange"
-    anchors.top: emoticonsCalendarLayoutId.top
-    anchors.left: emoticonsCalendarLayoutId.right
 
 
     anchors.leftMargin: 3

@@ -68,59 +68,75 @@ Window {
                 textEnabled: false
             }
 
-            GraphBar
+            EmoticonsGraph
             {
-                id: joyBarId
-                textContent: "10"
-                color: "orange"
-                anchors.top: emoticonsCalendarLayoutId.top
-                anchors.topMargin: imageSize / 9
+                joyBarWidth: maxBarWidth
+                joyBarText: "10"
+                happyBarWidth: maxBarWidth
+                happyBarText: "10"
+                sadBarWidth: maxBarWidth
+                sadBarText: "10"
+                worriedBarWidth: maxBarWidth
+                worriedBarText: "10"
+                fearfulBarWidth: maxBarWidth
+                fearfulBarText: "10"
+                angryBarWidth: maxBarWidth
+                angryBarText: "10"
             }
 
-            GraphBar
-            {
-                id: happyBarId
-                textContent: "10"
-                color: "yellow"
-                anchors.top: joyBarId.bottom
-                anchors.topMargin: imageSize / 3.75
-            }
+//            GraphBar
+//            {
+//                id: joyBarId
+//                textContent: "10"
+//                color: "orange"
+//                anchors.top: emoticonsCalendarLayoutId.top
+//                anchors.topMargin: imageSize / 9
+//            }
 
-            GraphBar
-            {
-                id: sadBarId
-                textContent: "10"
-                color: "blue"
-                anchors.top: happyBarId.bottom
-                anchors.topMargin: imageSize / 3.75
-            }
+//            GraphBar
+//            {
+//                id: happyBarId
+//                textContent: "10"
+//                color: "yellow"
+//                anchors.top: joyBarId.bottom
+//                anchors.topMargin: imageSize / 3.75
+//            }
 
-            GraphBar
-            {
-                id: worriedBarId
-                textContent: "10"
-                color: "cyan"
-                anchors.top: sadBarId.bottom
-                anchors.topMargin: imageSize / 3.75
-            }
+//            GraphBar
+//            {
+//                id: sadBarId
+//                textContent: "10"
+//                color: "blue"
+//                anchors.top: happyBarId.bottom
+//                anchors.topMargin: imageSize / 3.75
+//            }
 
-            GraphBar
-            {
-                id: fearfulBarId
-                textContent: "10"
-                color: "purple"
-                anchors.top: worriedBarId.bottom
-                anchors.topMargin: imageSize / 3.75
-            }
+//            GraphBar
+//            {
+//                id: worriedBarId
+//                textContent: "10"
+//                color: "cyan"
+//                anchors.top: sadBarId.bottom
+//                anchors.topMargin: imageSize / 3.75
+//            }
 
-            GraphBar
-            {
-                id: angryBarId
-                textContent: "10"
-                color: "red"
-                anchors.top: fearfulBarId.bottom
-                anchors.topMargin: imageSize / 3.75
-            }
+//            GraphBar
+//            {
+//                id: fearfulBarId
+//                textContent: "10"
+//                color: "purple"
+//                anchors.top: worriedBarId.bottom
+//                anchors.topMargin: imageSize / 3.75
+//            }
+
+//            GraphBar
+//            {
+//                id: angryBarId
+//                textContent: "10"
+//                color: "red"
+//                anchors.top: fearfulBarId.bottom
+//                anchors.topMargin: imageSize / 3.75
+//            }
 
 
             //Physical Activity title text that contains "Physical Activity"
