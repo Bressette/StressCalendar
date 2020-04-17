@@ -107,7 +107,9 @@ Rectangle
 
             onClicked:
             {
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
+                //fixes notes insert
+                const notesVal = notesTextAreaId.text
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
 
                 const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
                 date.setDate(date.getDate() - 1)
@@ -120,8 +122,7 @@ Rectangle
                 userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
                 radioGroupId.visible = false
                 radioGroupId.visible = true
-
-                console.log("Populate fields with data from previous day")
+                console.log("Values are: ", physicalActivityInputTextFieldId.text, notesTextAreaId.text)
             }
         }
     }
@@ -196,7 +197,8 @@ Rectangle
             onClicked:
             {
 
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
+                const notesVal = notesTextAreaId.text
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
                 radioGroupId.visible = false
                 radioGroupId.visible = true
                 calendarScreenId.visible = true
@@ -225,10 +227,8 @@ Rectangle
 
             onClicked:
             {
-
-                const physicalActivityNumber = parseInt(physicalActivityInputTextFieldId.text)
-
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
+                const notesVal = notesTextAreaId.text
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
 
 
 
