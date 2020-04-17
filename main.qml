@@ -71,6 +71,7 @@ Window {
 
             EmoticonsGraph
             {
+                id: emoticonsGraphId
                 joyBarWidth: maxBarWidth
                 joyBarText: "10"
                 happyBarWidth: maxBarWidth
@@ -148,9 +149,6 @@ Window {
                 userInputObjectId.year = enterInputRectId.year
                 DB.getDataForDate(enterInputRectId.isoDate)
 
-                var resultArray = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
-                console.log(resultArray[0])
-
                 enterInputRectId.visible = true
             }
 
@@ -173,36 +171,6 @@ Window {
             anchors.fill: calendarId
             color: "transparent"
             anchors.centerIn: calendarId
-
-//            function setIsoDate(year, month, day)
-//            {
-//                var isoMonth = month
-//                var isoDay = day
-
-//                if(month < 10)
-//                {
-//                    isoMonth = "0" + month
-//                }
-
-//                if(day < 10)
-//                {
-//                    isoDay = "0" + day
-//                }
-
-//                var isoDate = year + "-" + isoMonth + "-" + isoDay
-//                return isoDate
-//            }
-
-//            function setIsoMonth(month)
-//            {
-//                if(month < 10)
-//                {
-//                    return ("0" + month)
-//                }
-
-//                else
-//                    return month
-//            }
 
 
             property int day

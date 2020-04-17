@@ -64,7 +64,7 @@ function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber
 //this function returns an array of the mood values for a given month
 function getEmoticonGraphValues(month)
 {
-    var monthArray = []
+    var monthArray = [-1]
     var db = getDatabaseConnection()
     db.transaction(
                 function(tx)
