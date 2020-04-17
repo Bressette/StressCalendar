@@ -62,6 +62,17 @@ function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber
                     )
 }
 
-function setEmoticonGraphValues
+function getEmoticonGraphValues(month)
+{
+    var db = getDatabaseConnection()
+    db.transaction(
+                function(tx)
+                {
+                    createTable(tx)
+                    var result = tx.executeSql('SELECT mood FROM day WHERE MONTH(date) = ' + month)
+                    return result
+                }
+            )
+}
 
 
