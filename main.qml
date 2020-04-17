@@ -191,6 +191,7 @@ Window {
         physicalActivityTextFieldText: "0"
         notesTextAreaText: "Enter notes here"
 
+
         day : "01"
         month : "01"
         year : "1970"

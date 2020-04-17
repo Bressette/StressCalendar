@@ -12,21 +12,53 @@ function setRadioButton(dbRadioButtonSelection)
     {
         case 0:
             userInputObjectId.joyCheckedVal = true
+            userInputObjectId.happyCheckedVal = false
+            userInputObjectId.sadCheckedVal = false
+            userInputObjectId.worriedCheckedVal = false
+            userInputObjectId.fearfulCheckedVal = false
+            userInputObjectId.angryCheckedVal = false
             break
         case 1:
             userInputObjectId.happyCheckedVal = true
+            userInputObjectId.joyCheckedVal = false
+            userInputObjectId.sadCheckedVal = false
+            userInputObjectId.worriedCheckedVal = false
+            userInputObjectId.fearfulCheckedVal = false
+            userInputObjectId.angryCheckedVal = false
+
             break
         case 2:
             userInputObjectId.sadCheckedVal = true
+            userInputObjectId.happyCheckedVal = false
+            userInputObjectId.joyCheckedVal = false
+            userInputObjectId.worriedCheckedVal = false
+            userInputObjectId.fearfulCheckedVal = false
+            userInputObjectId.angryCheckedVal = false
+
             break
         case 3:
             userInputObjectId.worriedCheckedVal = true
+            userInputObjectId.sadCheckedVal = false
+            userInputObjectId.happyCheckedVal = false
+            userInputObjectId.joyCheckedVal = false
+            userInputObjectId.fearfulCheckedVal = false
+            userInputObjectId.angryCheckedVal = false
             break;
         case 4:
             userInputObjectId.fearfulCheckedVal = true
+            userInputObjectId.worriedCheckedVal = false
+            userInputObjectId.sadCheckedVal = false
+            userInputObjectId.happyCheckedVal = false
+            userInputObjectId.joyCheckedVal = false
+            userInputObjectId.angryCheckedVal = false
             break
         case 5:
             userInputObjectId.angryCheckedVal = true
+            userInputObjectId.worriedCheckedVal = false
+            userInputObjectId.sadCheckedVal = false
+            userInputObjectId.happyCheckedVal = false
+            userInputObjectId.joyCheckedVal = false
+            userInputObjectId.fearfulCheckedVal = false
             break
         case 6:
             setRadioButtonsFalse()
@@ -54,20 +86,4 @@ function setRadioButtonsFalse()
     userInputObjectId.angryCheckedVal = false
 }
 
-function getRadioButtonSelection()
-{
-    if(userInputObjectId.joyCheckedVal === true)
-        return 0
-    else if(userInputObjectId.happyCheckedVal === true)
-        return 1
-    else if(userInputObjectId.sadCheckedVal === true)
-        return 2
-    else if(userInputObjectId.worriedCheckedVal === true)
-        return 3
-    else if(userInputObjectId.fearfulCheckedVal === true)
-        return 4
-    else if(userInputObjectId.angryCheckedVal === true)
-        return 5
-    else
-        return 6
-}
+

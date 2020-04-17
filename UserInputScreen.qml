@@ -14,12 +14,12 @@ Rectangle
     anchors.fill: parent
     visible: false
 
-    property bool joyCheckedVal : false
-    property bool happyCheckedVal : false
-    property bool sadCheckedVal : false
-    property bool worriedCheckedVal : false
-    property bool fearfulCheckedVal : false
-    property bool angryCheckedVal : false
+    property bool joyCheckedVal
+    property bool happyCheckedVal
+    property bool sadCheckedVal
+    property bool worriedCheckedVal
+    property bool fearfulCheckedVal
+    property bool angryCheckedVal
 
     property var physicalActivityTextFieldText
     property var notesTextAreaText
@@ -107,10 +107,10 @@ Rectangle
 
             onClicked:
             {
-                //fixes notes insert
                 const notesVal = notesTextAreaId.text
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
 
+                const radioButtonSelection = radioGroupId.getRadioButtonSelection()
+                DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
                 const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
                 date.setDate(date.getDate() - 1)
                 enterInputRectId.day = date.getUTCDate()
@@ -198,7 +198,8 @@ Rectangle
             {
 
                 const notesVal = notesTextAreaId.text
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
+                const radioButtonSelection = radioGroupId.getRadioButtonSelection()
+                DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
                 radioGroupId.visible = false
                 radioGroupId.visible = true
                 calendarScreenId.visible = true
@@ -228,7 +229,8 @@ Rectangle
             onClicked:
             {
                 const notesVal = notesTextAreaId.text
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesVal)
+                const radioButtonSelection = radioGroupId.getRadioButtonSelection()
+                DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
 
 
 

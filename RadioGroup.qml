@@ -10,12 +10,31 @@ ColumnLayout
 
 
     onVisibleChanged: {
-        joyRadioButtonId.checked = joyCheckedVal
-        happyRadioButtonId.checked = happyCheckedVal
-        sadRadioButtonId.checked = sadCheckedVal
-        worriedRadioButtonId.checked = worriedCheckedVal
-        fearfulRadioButtonId.checked = fearfulCheckedVal
-        angryRadioButtonId.checked = angryCheckedVal
+        console.log("Visible change " + userInputScreenId.joyCheckedVal + userInputScreenId.happyCheckedVal + userInputScreenId.sadCheckedVal + userInputScreenId.worriedCheckedVal + userInputScreenId.fearfulCheckedVal + userInputScreenId.angryCheckedVal)
+        joyRadioButtonId.checked = userInputScreenId.joyCheckedVal
+        happyRadioButtonId.checked = userInputScreenId.happyCheckedVal
+        sadRadioButtonId.checked = userInputScreenId.sadCheckedVal
+        worriedRadioButtonId.checked = userInputScreenId.worriedCheckedVal
+        fearfulRadioButtonId.checked = userInputScreenId.fearfulCheckedVal
+        angryRadioButtonId.checked = userInputScreenId.angryCheckedVal
+    }
+
+    function getRadioButtonSelection()
+    {
+        if(joyRadioButtonId.checked === true)
+            return 0
+        else if(happyRadioButtonId.checked === true)
+            return 1
+        else if(sadRadioButtonId.checked === true)
+            return 2
+        else if(worriedRadioButtonId.checked === true)
+            return 3
+        else if(fearfulRadioButtonId.checked === true)
+            return 4
+        else if(angryRadioButtonId.checked === true)
+            return 5
+        else
+            return 6
     }
 
     RadioButton
@@ -23,7 +42,7 @@ ColumnLayout
         id: joyRadioButtonId
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 3
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-        checked: joyCheckedVal
+        checked: userInputScreenId.joyCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -60,7 +79,7 @@ ColumnLayout
     {
         id: happyRadioButtonId
 
-        checked: happyCheckedVal
+        checked: userInputObjectId.happyCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -98,7 +117,7 @@ ColumnLayout
     RadioButton
     {
         id: sadRadioButtonId
-        checked: sadCheckedVal
+        checked: userInputObjectId.sadCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -136,7 +155,7 @@ ColumnLayout
     RadioButton
     {
         id: worriedRadioButtonId
-        checked: worriedCheckedVal
+        checked: userInputObjectId.worriedCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -173,7 +192,7 @@ ColumnLayout
     RadioButton
     {
         id: fearfulRadioButtonId
-        checked: fearfulCheckedVal
+        checked: userInputObjectId.fearfulCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -210,7 +229,7 @@ ColumnLayout
     RadioButton
     {
         id: angryRadioButtonId
-        checked: angryCheckedVal
+        checked: userInputObjectId.angryCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
