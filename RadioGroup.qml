@@ -7,20 +7,23 @@ import QtQuick.Layouts 1.3
 ColumnLayout
 {
     anchors.left: emoticonsInputLayoutId.right
-    property var joyChecked
-    property var happyChecked
-    property var sadChecked
-    property var worriedChecked
-    property var fearfulChecked
-    property var angryChecked
 
+
+    onVisibleChanged: {
+        joyRadioButtonId.checked = joyCheckedVal
+        happyRadioButtonId.checked = happyCheckedVal
+        sadRadioButtonId.checked = sadCheckedVal
+        worriedRadioButtonId.checked = worriedCheckedVal
+        fearfulRadioButtonId.checked = fearfulCheckedVal
+        angryRadioButtonId.checked = angryCheckedVal
+    }
 
     RadioButton
     {
         id: joyRadioButtonId
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 3
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
-        checked: joyChecked
+        checked: joyCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -57,7 +60,7 @@ ColumnLayout
     {
         id: happyRadioButtonId
 
-        checked: happyChecked
+        checked: happyCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -95,7 +98,7 @@ ColumnLayout
     RadioButton
     {
         id: sadRadioButtonId
-        checked: sadChecked
+        checked: sadCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -133,7 +136,7 @@ ColumnLayout
     RadioButton
     {
         id: worriedRadioButtonId
-        checked: worriedChecked
+        checked: worriedCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -170,7 +173,7 @@ ColumnLayout
     RadioButton
     {
         id: fearfulRadioButtonId
-        checked: fearfulChecked
+        checked: fearfulCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {
@@ -207,7 +210,7 @@ ColumnLayout
     RadioButton
     {
         id: angryRadioButtonId
-        checked: angryChecked
+        checked: angryCheckedVal
 
         style: RadioButtonStyle {
                 indicator: Rectangle {

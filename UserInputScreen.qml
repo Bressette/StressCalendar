@@ -14,12 +14,12 @@ Rectangle
     anchors.fill: parent
     visible: false
 
-    property var joyCheckedVal
-    property var happyCheckedVal
-    property var sadCheckedVal
-    property var worriedCheckedVal
-    property var fearfulCheckedVal
-    property var angryCheckedVal
+    property bool joyCheckedVal : false
+    property bool happyCheckedVal : false
+    property bool sadCheckedVal : false
+    property bool worriedCheckedVal : false
+    property bool fearfulCheckedVal : false
+    property bool angryCheckedVal : false
 
     property var physicalActivityTextFieldText
     property var notesTextAreaText
@@ -27,6 +27,8 @@ Rectangle
     property var day
     property var month
     property var year
+
+
 
     onVisibleChanged: {
         userInputDateTextId.text = month + "/" + day + "/" + year
@@ -49,12 +51,6 @@ Rectangle
     RadioGroup
     {
         id: radioGroupId
-        joyChecked: joyCheckedVal
-        happyChecked: happyCheckedVal
-        sadChecked: sadCheckedVal
-        worriedChecked: worriedCheckedVal
-        fearfulChecked: fearfulCheckedVal
-        angryChecked: angryCheckedVal
     }
 
 
@@ -111,7 +107,7 @@ Rectangle
 
             onClicked:
             {
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesTextAreaId.text)
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
 
                 const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
                 date.setDate(date.getDate() - 1)
@@ -122,6 +118,8 @@ Rectangle
                 const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
                 DB.getDataForDate(isoDate)
                 userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
+                radioGroupId.visible = false
+                radioGroupId.visible = true
 
                 console.log("Populate fields with data from previous day")
             }
@@ -197,9 +195,14 @@ Rectangle
 
             onClicked:
             {
+
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
+                radioGroupId.visible = false
+                radioGroupId.visible = true
                 calendarScreenId.visible = true
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
+
 
                 console.log("Switch back to the calendar screen")
             }
@@ -222,7 +225,13 @@ Rectangle
 
             onClicked:
             {
-                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, notesTextAreaId.text)
+
+                const physicalActivityNumber = parseInt(physicalActivityInputTextFieldId.text)
+
+                DB.insertDataTransaction(enterInputRectId.isoDate, SetVals.getRadioButtonSelection(), physicalActivityInputTextFieldId.text, "Hello")
+
+
+
 
                 const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
                 date.setDate(date.getDate() + 1)
@@ -234,8 +243,9 @@ Rectangle
 
                 DB.getDataForDate(isoDate)
                 userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
-                console.log("In next day button")
-                console.log("Populate fields with data from next day")
+                radioGroupId.visible = false
+                radioGroupId.visible = true
+
             }
         }
 

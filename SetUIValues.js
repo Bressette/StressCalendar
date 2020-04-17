@@ -41,6 +41,7 @@ function setValuesFromQuery(result)
     userInputObjectId.physicalActivityTextFieldText = result.rows.item(0).physicalActivity
     userInputObjectId.notesTextAreaText = result.rows.item(0).notes
     dayPopupId.dataStatusText = "Holds data"
+    console.log(dbRadioButtonSelection + " " + userInputObjectId.physicalActivityTextFieldText + " " + userInputObjectId.notesTextAreaText)
 }
 
 function setRadioButtonsFalse()

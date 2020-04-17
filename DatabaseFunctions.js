@@ -18,8 +18,10 @@ function insertData(tx, isoDateString, moodNumber, physicalActivityNumber, notes
 
 function selectDayData(tx, date)
 {
-    var selectStatement = 'SELECT * FROM day WHERE date = ' + date
-    return tx.executeSql(selectStatement)
+    //rs = tx.executeSql("SELECT temperature_value FROM temperature t where date(t.date) = date('"+fullTargetDate+"')");
+    console.log("In selectDayData")
+    const isoDate = "\"" + date + "\""
+    return tx.executeSql('SELECT * FROM day WHERE date = ' + isoDate)
 }
 
 function getDataForDate(isoDate)
@@ -28,19 +30,21 @@ function getDataForDate(isoDate)
     db.transaction(
                 function(tx)
                 {
-
                     createTable(tx)
-                    var result = selectDayData(tx, isoDate)
+                    var result = selectDayData(tx, enterInputRectId.isoDate)
+                    console.log("after get date result")
 
                     if(!(result.rows.length > 0))
                     {
-                          SetVals.setDefaultValues()
+                        console.log("in if")
+                        SetVals.setDefaultValues()
                     }
 
                     else
                     {
+                        console.log("set custom vals")
                         SetVals.setValuesFromQuery(result)
-                        console.log(result.rows.item(0).mood)
+                        console.log(result.rows.item(0).date)
                     }
                 }
             )
@@ -48,6 +52,7 @@ function getDataForDate(isoDate)
 
 function insertDataTransaction(isoDateString, moodNumber, physicalActivityNumber, notesString)
 {
+    console.log("in insert the iso date is: " + isoDateString + " The mood number is: " + moodNumber + " Physical Activity is: " + physicalActivityNumber + "notes: " + notesString)
     var db = getDatabaseConnection()
     db.transaction(
                 function(tx)

@@ -122,6 +122,8 @@ Window {
                 userInputObjectId.month = enterInputRectId.month
                 userInputObjectId.year = enterInputRectId.year
                 DB.getDataForDate(enterInputRectId.isoDate)
+
+
                 enterInputRectId.visible = true
             }
 
@@ -185,12 +187,6 @@ Window {
     UserInputScreen
     {
         id: userInputObjectId
-        joyCheckedVal: false
-        happyCheckedVal: false
-        sadCheckedVal: false
-        worriedCheckedVal: false
-        fearfulCheckedVal: false
-        angryCheckedVal: false
 
         physicalActivityTextFieldText: "0"
         notesTextAreaText: "Enter notes here"
