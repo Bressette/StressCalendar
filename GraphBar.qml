@@ -10,7 +10,7 @@ Rectangle
     color: "orange"
     anchors.top: emoticonsCalendarLayoutId.top
     anchors.left: emoticonsCalendarLayoutId.right
-    anchors.topMargin: imageSize / 9
+
 
     anchors.leftMargin: 3
 
