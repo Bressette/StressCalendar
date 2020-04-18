@@ -129,4 +129,18 @@ function getPhysicalActivityValues(month)
 
 }
 
+function getRecentValues()
+{
+    var result
+    var db = getDatabaseConnection()
+    db.transaction(
+                function(tx)
+                {
+                    createTable(tx)
+                    result = tx.executeSql("Select * FROM day ORDER BY date DESC LIMIT 7")
+                }
+            )
+    return result
+}
+
 

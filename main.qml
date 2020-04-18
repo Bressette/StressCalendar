@@ -254,7 +254,7 @@ Window {
             RecentFeedBackPopup
             {
                 id: recentFeedbackPopupId
-                textContent: "Text goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes here"
+                textContent: "Not enough data to generate feedback"
                 anchors.fill: parent
             }
 
