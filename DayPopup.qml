@@ -111,6 +111,8 @@ Rectangle
                 anchors.fill: parent
                 onClicked:
                 {
+                    outsideRecentFeedbackId.visible = true
+                    enterInputRectId.visible = false
                     console.log("In recent feedback button")
                 }
             }

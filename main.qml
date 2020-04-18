@@ -234,6 +234,33 @@ Window {
             visible: false
         }
 
+        Rectangle
+        {
+            id: outsideRecentFeedbackId
+            anchors.fill: parent
+            color: "transparent"
+            anchors.centerIn: calendarId
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked:
+                {
+                    outsideRecentFeedbackId.visible = false
+                }
+            }
+
+
+            RecentFeedBackPopup
+            {
+                id: recentFeedbackPopupId
+                textContent: "Text goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes hereText goes here"
+                anchors.fill: parent
+            }
+
+            visible: false
+        }
+
     }
 
 
