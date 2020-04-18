@@ -1,4 +1,11 @@
-import QtQuick 2.0
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Layouts 1.3
+import QtQuick.LocalStorage 2.12
+import "DatabaseFunctions.js" as DB
+import "SetUIValues.js" as SetVals
 
 Rectangle
 {
@@ -111,6 +118,7 @@ Rectangle
                 anchors.fill: parent
                 onClicked:
                 {
+                    SetVals.setWeeklyFeedback()
                     outsideRecentFeedbackId.visible = true
                     enterInputRectId.visible = false
                     console.log("In recent feedback button")

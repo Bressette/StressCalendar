@@ -310,3 +310,46 @@ function setPhysicalActivityValues()
             physicalActivityGraphId.saturdayBarText = (weeklyPhysicalActivityAmounts[6] + 1)
         }
 }
+
+function setWeeklyFeedback()
+{
+    var result = DB.getRecentValues()
+    var totalPhysicalActivity = 0
+    var physicalActivityText
+    var moodText
+
+    var totalMood = 0
+    for(var i = 0; i < result.rows.length; i++)
+    {
+        totalPhysicalActivity += result.rows.item(i).physicalActivity
+        totalMood += result.rows.item(i).mood
+    }
+
+
+    if(totalPhysicalActivity < 150)
+    {
+        physicalActivityText = "Increasing your physical activity can help you feel better"
+    }
+
+    else
+    {
+        physicalActivityText = "You have a good level of physical activity"
+    }
+
+    if(totalMood < 10)
+    {
+        moodText = "Your mood has been good this week"
+    }
+
+    else
+    {
+        moodText = "Talk to someone that can help you feel better"
+    }
+
+
+    recentFeedbackPopupId.textContent = moodText + "\n" + physicalActivityText
+
+
+
+
+}
