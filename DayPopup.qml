@@ -67,16 +67,54 @@ Rectangle
             anchors.fill: parent
             onClicked:
             {
-                console.log("In onclick")
                 calendarScreenId.visible = false
                 userInputObjectId.visible = true
                 userInputObjectId.day = enterInputRectId.day
                 userInputObjectId.month = enterInputRectId.month
                 userInputObjectId.year = enterInputRectId.year
-                //calendarScreenId.visible = false
             }
         }
     }
+
+
+        Rectangle
+        {
+            id: recentFeedbackButtonId
+            width: parent.width * 0.75
+            height: parent.height / 5
+
+            anchors.top: editButtonId.bottom
+            anchors.topMargin: 5
+            anchors.left: editButtonId.left
+
+            color: "white"
+            border.color: "black"
+            border.width: 5
+
+            Text
+            {
+                id: recentFeedbackTextId
+                width: parent.width
+                height: parent.height
+                text: "Recent Feedback"
+                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.pointSize: 100
+                minimumPointSize: 10
+                fontSizeMode: Text.HorizontalFit
+            }
+
+            MouseArea
+            {
+                id: recentFeedbackButtonMouseAreaId
+                anchors.fill: parent
+                onClicked:
+                {
+                    console.log("In recent feedback button")
+                }
+            }
+        }
 
 
 

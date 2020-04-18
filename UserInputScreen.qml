@@ -233,6 +233,7 @@ Rectangle
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
                 SetVals.setEmoticonValues()
+                SetVals.setPhysicalActivityValues()
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
             }
