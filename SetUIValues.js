@@ -210,58 +210,10 @@ function setEmoticonValues()
 
 function setPhysicalActivityValues()
 {
-    var physicalActivityArray = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
+    var weeklyPhysicalActivityAmounts = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
     var max = 0
-    var weeklyPhysicalActivityAmounts = [0,0,0,0,0,0,0]
 
-    if(physicalActivityArray[0] === -1)
-    {
-        physicalActivityGraphId.mondayBarWidth = 10
-        physicalActivityGraphId.mondayBarText = "0"
-        physicalActivityGraphId.tuesdayBarWidth = 10
-        physicalActivityGraphId.tuesdayBarText = "0"
-        physicalActivityGraphId.wednesdayBarWidth = 10
-        physicalActivityGraphId.wednesdayBarText = "0"
-        physicalActivityGraphId.thursdayBarWidth = 10
-        physicalActivityGraphId.thursdayBarText = "0"
-        physicalActivityGraphId.fridayBarWidth = 10
-        physicalActivityGraphId.fridayBarText = "0"
-        physicalActivityGraphId.saturdayBarWidth = 10
-        physicalActivityGraphId.saturdayBarText = "0"
-        physicalActivityGraphId.sundayBarWidth = 10
-        physicalActivityGraphId.sundayBarText = "0"
-    }
-
-    else
-    {
-        for(var i in physicalActivityArray)
-        {
-            switch(physicalActivityArray[i])
-            {
-            case 0:
-                weeklyPhysicalActivityAmounts[0] += 1
-                break
-            case 1:
-                weeklyPhysicalActivityAmounts[1] += 1
-                break
-            case 2:
-                weeklyPhysicalActivityAmounts[2] += 1
-                break
-            case 3:
-                weeklyPhysicalActivityAmounts[3] += 1
-                break
-            case 4:
-                weeklyPhysicalActivityAmounts[4] += 1
-                break
-            case 5:
-                weeklyPhysicalActivityAmounts[5] += 1
-                break
-            case 6:
-                weeklyPhysicalActivityAmounts[6] += 1
-            }
-        }
-
-        for(i in weeklyPhysicalActivityAmounts)
+        for(var i in weeklyPhysicalActivityAmounts)
         {
             console.log("The value of " + i + " is: " + weeklyPhysicalActivityAmounts[i])
             if(weeklyPhysicalActivityAmounts[i] > max)
@@ -273,18 +225,88 @@ function setPhysicalActivityValues()
         console.log("The value of max is: " + max)
 
         var widthRatio = (graphSidebarId.width / 2) / max
-        emoticonsGraphId.joyBarWidth = moodAmounts[0] * widthRatio + 10
-        emoticonsGraphId.joyBarText = moodAmounts[0]
-        emoticonsGraphId.happyBarWidth = moodAmounts[1] * widthRatio + 10
-        emoticonsGraphId.happyBarText = moodAmounts[1]
-        emoticonsGraphId.sadBarWidth = moodAmounts[2] * widthRatio + 10
-        emoticonsGraphId.sadBarText = moodAmounts[2]
-        emoticonsGraphId.worriedBarWidth = moodAmounts[3] * widthRatio + 10
-        emoticonsGraphId.worriedBarText = moodAmounts[3]
-        emoticonsGraphId.fearfulBarWidth = moodAmounts[4] * widthRatio + 10
-        emoticonsGraphId.fearfulBarText = moodAmounts[4]
-        emoticonsGraphId.angryBarWidth = moodAmounts[5] * widthRatio + 10
-        emoticonsGraphId.angryBarText = moodAmounts[5]
-    }
 
+        if(weeklyPhysicalActivityAmounts[0] === -1)
+        {
+            physicalActivityGraphId.sundayBarWidth = 10
+            physicalActivityGraphId.sundayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.sundayBarWidth = weeklyPhysicalActivityAmounts[0] * widthRatio
+            physicalActivityGraphId.sundayBarText = (weeklyPhysicalActivityAmounts[0] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[1] === -1)
+        {
+            physicalActivityGraphId.mondayBarWidth = 10
+            physicalActivityGraphId.mondayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.mondayBarWidth = weeklyPhysicalActivityAmounts[1] * widthRatio
+            physicalActivityGraphId.mondayBarText = (weeklyPhysicalActivityAmounts[1] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[2] === -1)
+        {
+            physicalActivityGraphId.tuesdayBarWidth = 10
+            physicalActivityGraphId.tuesdayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.tuesdayBarWidth = weeklyPhysicalActivityAmounts[2] * widthRatio
+            physicalActivityGraphId.tuesdayBarText = (weeklyPhysicalActivityAmounts[2] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[3] === -1)
+        {
+            physicalActivityGraphId.wednesdayBarWidth = 10
+            physicalActivityGraphId.wednesdayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.wednesdayBarWidth = weeklyPhysicalActivityAmounts[3] * widthRatio
+            physicalActivityGraphId.wednesdayBarText = (weeklyPhysicalActivityAmounts[3] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[4] === -1)
+        {
+            physicalActivityGraphId.thursdayBarWidth = 10
+            physicalActivityGraphId.thursdayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.thursdayBarWidth = weeklyPhysicalActivityAmounts[4] * widthRatio
+            physicalActivityGraphId.thursdayBarText = (weeklyPhysicalActivityAmounts[4] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[5] === -1)
+        {
+            physicalActivityGraphId.fridayBarWidth = 10
+            physicalActivityGraphId.fridayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.fridayBarWidth = weeklyPhysicalActivityAmounts[5] * widthRatio
+            physicalActivityGraphId.fridayBarText = (weeklyPhysicalActivityAmounts[5] + 1)
+        }
+
+        if(weeklyPhysicalActivityAmounts[6] === -1)
+        {
+            physicalActivityGraphId.saturdayBarWidth = 10
+            physicalActivityGraphId.saturdayBarText = "0"
+        }
+
+        else
+        {
+            physicalActivityGraphId.saturdayBarWidth = weeklyPhysicalActivityAmounts[6] * widthRatio
+            physicalActivityGraphId.saturdayBarText = (weeklyPhysicalActivityAmounts[6] + 1)
+        }
 }

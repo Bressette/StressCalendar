@@ -172,7 +172,7 @@ Window {
                 DB.getDataForDate(enterInputRectId.isoDate)
 
                 SetVals.setEmoticonValues()
-                var testArray = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
+                SetVals.setPhysicalActivityValues()
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
 

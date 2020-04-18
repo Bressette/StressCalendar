@@ -117,12 +117,16 @@ function getPhysicalActivityValues(month)
                 }
             )
 
-    for(var i in physicalActivityArray)
+    var shiftedPhysicalActivityValues = []
+
+    for(var i = 1; i < physicalActivityArray.length; i++)
     {
-        console.log("Value " + i + " " + physicalActivityArray[i])
+        shiftedPhysicalActivityValues[i] = physicalActivityArray[i-1]
     }
 
-    return physicalActivityArray
+    shiftedPhysicalActivityValues[0] = physicalActivityArray[shiftedPhysicalActivityValues.length - 1]
+    return shiftedPhysicalActivityValues
+
 }
 
 
