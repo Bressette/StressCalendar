@@ -15,3 +15,5 @@ A desktop application that displays a calendar that lets users input their daily
 ![UserInputScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/UserInputScreen.PNG)
 ### Popup window that lets the user edit data for the day or view personal feedback
 ![DayPopupScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/DayPopup.PNG)
+### Recent feedback screen that provides feedback to the user based on recent recorded data
+![RecentFeedbackScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/RecentFeedback.PNG)
