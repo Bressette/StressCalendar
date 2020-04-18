@@ -117,6 +117,26 @@ Window {
                 textPointSize : calendarScreenId.width >= calendarScreenId.height ? graphSidebarId.height / 29 : graphSidebarId.width / 4
 
             }
+
+            PhysicalActivityGraph
+            {
+                id: physicalActivityGraphId
+
+                mondayBarWidth: 10
+                mondayBarText: "0"
+                tuesdayBarWidth: 10
+                tuesdayBarText: "0"
+                wednesdayBarWidth: 10
+                wednesdayBarText: "0"
+                thursdayBarWidth: 10
+                thursdayBarText: "0"
+                fridayBarWidth: 10
+                fridayBarText: "0"
+                saturdayBarWidth: 10
+                saturdayBarText: "0"
+                sundayBarWidth: 10
+                sundayBarText: "0"
+            }
         }
 
 
@@ -152,6 +172,7 @@ Window {
                 DB.getDataForDate(enterInputRectId.isoDate)
 
                 SetVals.setEmoticonValues()
+                var testArray = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
 
