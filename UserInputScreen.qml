@@ -236,6 +236,8 @@ Rectangle
                 SetVals.setPhysicalActivityValues()
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
+                physicalActivityGraphId.visible = false
+                physicalActivityGraphId.visible = true
             }
         }
     }
