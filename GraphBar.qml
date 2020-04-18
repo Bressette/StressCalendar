@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 
 
-
+//Rectangle that defines a graph bar with a default color of orange
 Rectangle
 {
     width: moodTitleId.implicitWidth / 2
@@ -14,6 +14,7 @@ Rectangle
 
     property var textContent
 
+    //Text that is centered and fit to the parent rectangle
     Text
     {
         width: parent.width

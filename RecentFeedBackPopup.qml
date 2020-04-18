@@ -1,17 +1,21 @@
 import QtQuick 2.0
 
+//rectangle that defines the root screen for recent feedback
 Rectangle
 {
     id: recentFeedbackRootId
     color: "white"
 
+    //property used to allow for the body text of recent feedback to be updated
     property var textContent
 
+    //update the recent feedback text based on the textContent property
     onVisibleChanged:
     {
         recentFeedbackContentId.text = textContent
     }
 
+    //rectangle that defines the size of the recent feedback title
     Rectangle
     {
         id: recentFeedbackTitleContainerId
@@ -35,6 +39,7 @@ Rectangle
         }
     }
 
+        //text that contains the feedback displayed to the user
         Text
         {
             id: recentFeedbackContentId
@@ -49,6 +54,8 @@ Rectangle
             wrapMode: Text.Wrap
         }
 
+        //rectangle that creates a red rectangle with an X fit to the size to let users know
+        //that they should click to exit the recent feedback popup screen
         Rectangle
         {
             id: exitButtonId
@@ -58,6 +65,7 @@ Rectangle
             anchors.top: parent.top
             anchors.right: parent.right
 
+            //text that contains "X" and is fit to the size of the parent rectangle
             Text
             {
                 id: exitButtonXId

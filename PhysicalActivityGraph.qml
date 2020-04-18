@@ -1,12 +1,15 @@
 import QtQuick 2.0
 
+//Item that contains the graph bars for the physical activity graph
 Item
 {
+    //anchors the graph to the object that contains the titles of the days of the week
     anchors.left: dayTitlesId.right
     anchors.top: dayTitlesId.top
 
     anchors.leftMargin: graphSidebarId.height / 14
 
+    //properties used to change the values of the graph bars
     property var mondayBarWidth
     property var mondayBarText
     property var tuesdayBarWidth
@@ -22,8 +25,10 @@ Item
     property var sundayBarWidth
     property var sundayBarText
 
+    //property used to control the height of all graph bars
     property int individualHeight : graphSidebarId.height / 28
 
+    //event used to update the values when the visibility of the root element is changed
     onVisibleChanged:
     {
         mondayBarId.width = mondayBarWidth
@@ -42,6 +47,7 @@ Item
         sundayBarId.textContent = sundayBarText
     }
 
+    //graph bar for monday
     GraphBar
     {
         id: mondayBarId
@@ -53,6 +59,7 @@ Item
         anchors.topMargin: imageSize / 9
     }
 
+    //graph bar for tuesday
     GraphBar
     {
         id: tuesdayBarId
@@ -64,6 +71,7 @@ Item
         anchors.topMargin: imageSize / 15
     }
 
+    //graph bar for wednesday
     GraphBar
     {
         id: wednesdayBarId
@@ -75,6 +83,7 @@ Item
         anchors.topMargin: imageSize / 15
     }
 
+    //graph bar for thursday
     GraphBar
     {
         id: thursdayBarId
@@ -86,6 +95,7 @@ Item
         anchors.topMargin: imageSize / 15
     }
 
+    //graph bar for friday
     GraphBar
     {
         id: fridayBarId
@@ -97,6 +107,7 @@ Item
         anchors.topMargin: imageSize / 15
     }
 
+    //graph bar for saturday
     GraphBar
     {
         id: saturdayBarId
@@ -108,6 +119,7 @@ Item
         anchors.topMargin: imageSize / 15
     }
 
+    //graph bar for sunday
     GraphBar
     {
         id: sundayBarId

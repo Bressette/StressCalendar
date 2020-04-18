@@ -1,9 +1,10 @@
 import QtQuick 2.0
 
 
-
+//rectangle that defines the button
 Rectangle
 {
+    //properties used to change the values of the button
     property var buttonHeight
     property var buttonWidth
     property var buttonColor
@@ -16,6 +17,7 @@ Rectangle
     color: buttonColor
 
 
+    //text that is fit and centered to the button
     Text
     {
         id: backToCalendarText

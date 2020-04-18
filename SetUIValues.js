@@ -1,3 +1,4 @@
+//sets the value of all of the UI elements on the user input screen to their default state
 function setDefaultValues()
 {
     setRadioButtonsFalse()
@@ -6,8 +7,10 @@ function setDefaultValues()
     dayPopupId.dataStatusText = "No data"
 }
 
+//sets the checked value of each radio button dependent on the selection passed into the function
 function setRadioButton(dbRadioButtonSelection)
 {
+    //switch statement that sets the checked values based on which radio button should be pressed
     switch(dbRadioButtonSelection)
     {
         case 0:
@@ -66,6 +69,7 @@ function setRadioButton(dbRadioButtonSelection)
     }
 }
 
+//sets the values of UI elements on the user input screen based on a sql query
 function setValuesFromQuery(result)
 {
     var dbRadioButtonSelection = result.rows.item(0).mood
@@ -75,6 +79,7 @@ function setValuesFromQuery(result)
     dayPopupId.dataStatusText = "Holds data"
 }
 
+//sets the values of all radio buttons to false when the user does not select a radio button
 function setRadioButtonsFalse()
 {
     userInputObjectId.joyCheckedVal = false
@@ -85,6 +90,8 @@ function setRadioButtonsFalse()
     userInputObjectId.angryCheckedVal = false
 }
 
+
+//sets default values for the emoticon graph
 function setDefaultEmoticonGraphValues()
 {
     joyBarWidth = 0
@@ -101,6 +108,7 @@ function setDefaultEmoticonGraphValues()
     angryBarText = "0"
 }
 
+//returns an iso date based on the values passed into the function
 function setIsoDate(year, month, day)
 {
     var isoMonth = month
@@ -120,6 +128,7 @@ function setIsoDate(year, month, day)
     return isoDate
 }
 
+//returns an iso month based on the month value passed into the function
 function setIsoMonth(month)
 {
     if(month < 10)
@@ -131,12 +140,17 @@ function setIsoMonth(month)
         return month
 }
 
+//sets the emoticon graph values based on data from the database
 function setEmoticonValues()
 {
+    //creates a moodArray that holds all mood values from the current month
     var moodArray = DB.getEmoticonGraphValues(enterInputRectId.isoMonth)
+    //defines a max value to scale the width of the graph bars
     var max = 0
+    //defines a moodAmounts array that holds how many of each mood is selected in a month
     var moodAmounts = [0,0,0,0,0,0]
 
+    //sets default values when no mood values are known
     if(moodArray[0] === -1)
     {
         emoticonsGraphId.joyBarWidth = 10
@@ -153,10 +167,13 @@ function setEmoticonValues()
         emoticonsGraphId.angryBarText = "0"
     }
 
+    //populates moodAmounts with the number of each mood that is selected in a month
     else
     {
         for(var i in moodArray)
         {
+            //switch that determines which mood is selected on a day and increments the
+            //corresponding moodAmounts value
             switch(moodArray[i])
             {
             case 0:
@@ -180,18 +197,19 @@ function setEmoticonValues()
             }
         }
 
+        //sets max to maximum value of moodAmounts
         for(i in moodAmounts)
         {
-            console.log("The value of " + i + " is: " + moodAmounts[i])
             if(moodAmounts[i] > max)
             {
                 max = moodAmounts[i]
             }
         }
 
-        console.log("The value of max is: " + max)
-
+        //defines a widthRatio based on the max mood value and uses the ratio to scale the width of moods
         var widthRatio = (graphSidebarId.width / 2) / max
+
+        //sets the width of each bar based on the width ratio and sets the text based on the amount of each mood from moodAmounts
         emoticonsGraphId.joyBarWidth = moodAmounts[0] * widthRatio + 10
         emoticonsGraphId.joyBarText = moodAmounts[0]
         emoticonsGraphId.happyBarWidth = moodAmounts[1] * widthRatio + 10
@@ -208,24 +226,27 @@ function setEmoticonValues()
 
 }
 
+//sets the values for the physical activity graph
 function setPhysicalActivityValues()
 {
+    //creates an array weeklyPhysicalActivityAmounts that holds the total amounts for each day of the week
     var weeklyPhysicalActivityAmounts = DB.getPhysicalActivityValues(enterInputRectId.isoMonth)
+    //defines a max variable to scale the width of the graph bars
     var max = 0
 
+        //sets max to the maximum physical activity value
         for(var i in weeklyPhysicalActivityAmounts)
         {
-            console.log("The value of " + i + " is: " + weeklyPhysicalActivityAmounts[i])
             if(weeklyPhysicalActivityAmounts[i] > max)
             {
                 max = weeklyPhysicalActivityAmounts[i]
             }
         }
 
-        console.log("The value of max is: " + max)
-
+        //defines a widthRatio used to scale the size of the graph bars
         var widthRatio = (graphSidebarId.width / 2) / max
 
+        //if else statements used to determine if physical activity values are default or have been set
         if(weeklyPhysicalActivityAmounts[0] === -1)
         {
             physicalActivityGraphId.sundayBarWidth = 10
@@ -311,21 +332,28 @@ function setPhysicalActivityValues()
         }
 }
 
+//sets the recent feedback text based on the last 7 records from the database
 function setWeeklyFeedback()
 {
+    //create result and set it to the last 7 records from the database
     var result = DB.getRecentValues()
+    //variable used to hold the total amount of physical activity from the database records
     var totalPhysicalActivity = 0
+    //holds the feedback about the amount of physical activity
     var physicalActivityText
+    //holds the feedback about the mood values
     var moodText
-
+    //holds the summation of mood values
     var totalMood = 0
+
+    //iterates over the records and adds the physical activity amount and mood values to variables
     for(var i = 0; i < result.rows.length; i++)
     {
         totalPhysicalActivity += result.rows.item(i).physicalActivity
         totalMood += result.rows.item(i).mood
     }
 
-
+    //conditions that change what text is held in physicalActivityText and moodText
     if(totalPhysicalActivity < 150)
     {
         physicalActivityText = "Increasing your physical activity can help you feel better"
@@ -346,7 +374,7 @@ function setWeeklyFeedback()
         moodText = "Talk to someone that can help you feel better"
     }
 
-
+    //sets the body text of recent feedback to moodText and physicalActivityText
     recentFeedbackPopupId.textContent = moodText + "\n" + physicalActivityText
 
 

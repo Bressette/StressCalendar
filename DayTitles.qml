@@ -4,10 +4,11 @@ import QtQuick.Layouts 1.3
 ColumnLayout
 {
 
-
+    //properties used to edit width and font size
     property int textLayoutWidth
     property int textPointSize
 
+    //text object for mondy
     Text
     {
         id: mondayTextId
@@ -16,10 +17,9 @@ ColumnLayout
 
         text: qsTr("Mon")
         font.pointSize: textPointSize
-
-
     }
 
+    //text object for tuesday
     Text
     {
         id: tuesdayTextId
@@ -30,6 +30,7 @@ ColumnLayout
         font.pointSize: textPointSize
     }
 
+    //text object for wednesday
     Text
     {
         id: wednesdayTextId
@@ -40,6 +41,7 @@ ColumnLayout
         font.pointSize: textPointSize
     }
 
+    //text object for thursday
     Text
     {
         id: thursdayTextId
@@ -50,6 +52,7 @@ ColumnLayout
         font.pointSize: textPointSize
     }
 
+    //text object for friday
     Text
     {
         id: fridayTextId
@@ -60,6 +63,7 @@ ColumnLayout
         font.pointSize: textPointSize
     }
 
+    //text object for saturday
     Text
     {
         id: saturdayTextId
@@ -70,9 +74,9 @@ ColumnLayout
         font.pointSize: textPointSize
     }
 
+    //text object for sunday
     Text
     {
-
         id: sundayTextId
         Layout.preferredWidth: textLayoutWidth
         Layout.preferredHeight: Layout.preferredWidth

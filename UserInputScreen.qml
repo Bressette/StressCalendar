@@ -14,27 +14,28 @@ Rectangle
     anchors.fill: parent
     visible: false
 
+    //properties used to change the value of UI elements on the UserInputScreen
     property bool joyCheckedVal
     property bool happyCheckedVal
     property bool sadCheckedVal
     property bool worriedCheckedVal
     property bool fearfulCheckedVal
     property bool angryCheckedVal
-
     property var physicalActivityTextFieldText
     property var notesTextAreaText
-
     property var day
     property var month
     property var year
 
 
-
-    onVisibleChanged: {
+    //Event used to update the UserInputScreen date text when the visibility of the root element is changed
+    onVisibleChanged:
+    {
         userInputDateTextId.text = month + "/" + day + "/" + year
     }
 
 
+    //UI element that contains the emoticons with the text enabled
     EmoticonsLayout
     {
         id: emoticonsInputLayoutId
@@ -47,13 +48,14 @@ Rectangle
         textSize: graphSidebarId.height / 50
     }
 
-
+    //UI element that defines the radio buttons next to the emoticons
     RadioGroup
     {
         id: radioGroupId
     }
 
 
+    //text element that contains the title text "Physical Activity(minutes)"
     Text
     {
         id: physcialActivityInputId
@@ -68,18 +70,20 @@ Rectangle
     }
 
 
-
+    //Text field used to allow the user to enter the amount of physical activity for the day
     TextField
     {
         id: physicalActivityInputTextFieldId
         width: physcialActivityInputId.implicitWidth
         height: graphSidebarId.height * 0.1
         anchors.top: physcialActivityInputId.bottom
+        //validator that does not let the user enter any value that isn't an integer that is 0 or greater
         validator: IntValidator {bottom: 0;}
         font.pointSize: height / 3
         text: physicalActivityTextFieldText
     }
 
+    //rectangle used to create a black line separator between the sidebar and the rest of the screen
     Rectangle
     {
         id: lineSeparatorRectId
@@ -90,48 +94,7 @@ Rectangle
         anchors.leftMargin: 10
     }
 
-
-    NavigationButton
-    {
-        id: previousDayButtonId
-        buttonWidth: parent.width / 8
-        buttonHeight: parent.height / 15
-        buttonColor: "grey"
-        anchors.left: lineSeparatorRectId.right
-        anchors.leftMargin: 5
-        textContent: "Previous Day"
-
-        MouseArea
-        {
-            anchors.fill: parent
-
-            onClicked:
-            {
-                const notesVal = notesTextAreaId.text
-
-                const radioButtonSelection = radioGroupId.getRadioButtonSelection()
-                DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
-                const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
-                date.setDate(date.getDate() - 1)
-                enterInputRectId.day = date.getUTCDate()
-                enterInputRectId.month = date.getUTCMonth()
-                enterInputRectId.year = date.getUTCFullYear()
-
-                const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
-                DB.getDataForDate(isoDate)
-                userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
-                radioGroupId.visible = false
-                radioGroupId.visible = true
-            }
-        }
-    }
-
-
-
-
-
-
-
+        //UI element for the TextArea that lets users enter notes into a large text area
         TextArea
         {
             id: notesTextAreaId
@@ -145,6 +108,7 @@ Rectangle
             font.pointSize: 10
         }
 
+        //Title text that contains "Change Font Size" located at the bottom of the screen below the TextArea
         Text
         {
             id: changeFontTitleId
@@ -157,6 +121,7 @@ Rectangle
             font.pointSize: 24
         }
 
+        //TextField that when the user enters a value changes the font size of the TextArea
         TextField
         {
             id: changeFontTextFieldId
@@ -166,8 +131,10 @@ Rectangle
             x: changeFontTitleId.x + changeFontTextFieldId.implicitWidth - 50
             font.pointSize: 24
             text: notesTextAreaId.font.pointSize
+            //validator that does not let the user enter any value that isn't an integer that is 0 or greater
             validator: IntValidator {bottom: 0;}
 
+            //when the text is changed the font size of the TextArea is updated to the size of the entered value
             onTextChanged:
             {
                 notesTextAreaId.font.pointSize = parseInt(text)
@@ -176,7 +143,7 @@ Rectangle
 
 
 
-
+    //rectangle used to arrange the date text
     Rectangle
     {
         id: dateAlignmentRectId
@@ -186,6 +153,7 @@ Rectangle
         anchors.left: previousDayButtonId.right
         anchors.leftMargin: previousDayButtonId.width / 4
 
+        //Text that contains the current date and is fit to the dateAlignmentRect
         Text
         {
             id: userInputDateTextId
@@ -204,7 +172,7 @@ Rectangle
         }
     }
 
-
+    //UI element for the back to calendar button that contains the logic to move back to the CalendarScreen
     NavigationButton
     {
         id: backToCalendarButtonId
@@ -224,16 +192,23 @@ Rectangle
             onClicked:
             {
 
+                //insert the data into the database
                 const notesVal = notesTextAreaId.text
                 const radioButtonSelection = radioGroupId.getRadioButtonSelection()
                 DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
+
+                //update visibility to return to the calendar screen
                 radioGroupId.visible = false
                 radioGroupId.visible = true
                 calendarScreenId.visible = true
                 userInputScreenId.visible = false
                 enterInputRectId.visible = false
+
+                //set the graph values
                 SetVals.setEmoticonValues()
                 SetVals.setPhysicalActivityValues()
+
+                //reset the visibility of the graphs to trigger the onVisibilityChanged event to update the values
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
                 physicalActivityGraphId.visible = false
@@ -243,6 +218,46 @@ Rectangle
     }
 
 
+    //UI element for the previous day button that contains the logic to move to the previous day
+    NavigationButton
+    {
+        id: previousDayButtonId
+        buttonWidth: parent.width / 8
+        buttonHeight: parent.height / 15
+        buttonColor: "grey"
+        anchors.left: lineSeparatorRectId.right
+        anchors.leftMargin: 5
+        textContent: "Previous Day"
+
+        MouseArea
+        {
+            anchors.fill: parent
+
+            onClicked:
+            {
+                //inserts the data into the database
+                const notesVal = notesTextAreaId.text
+                const radioButtonSelection = radioGroupId.getRadioButtonSelection()
+                DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
+
+                //updates the date
+                const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
+                date.setDate(date.getDate() - 1)
+                enterInputRectId.day = date.getUTCDate()
+                enterInputRectId.month = date.getUTCMonth()
+                enterInputRectId.year = date.getUTCFullYear()
+
+                //gets the new data and updates the values
+                const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
+                DB.getDataForDate(isoDate)
+                userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
+                radioGroupId.visible = false
+                radioGroupId.visible = true
+            }
+        }
+    }
+
+    //UI element for the next day button that contains the logic to move to the next day
     NavigationButton
     {
         id: nextDayButtonId
@@ -251,6 +266,7 @@ Rectangle
         buttonColor: "grey"
         anchors.left: backToCalendarButtonId.right
         anchors.leftMargin: (dateAlignmentRectId.x - previousDayButtonId.x) / 4
+        textContent: "Next Day"
 
         MouseArea
         {
@@ -258,21 +274,20 @@ Rectangle
 
             onClicked:
             {
+                //inserts data into the database
                 const notesVal = notesTextAreaId.text
                 const radioButtonSelection = radioGroupId.getRadioButtonSelection()
                 DB.insertDataTransaction(enterInputRectId.isoDate, radioButtonSelection, physicalActivityInputTextFieldId.text, notesVal)
 
-
-
-
+                //updates the date to the next day
                 const date = new Date(enterInputRectId.year, enterInputRectId.month, enterInputRectId.day)
                 date.setDate(date.getDate() + 1)
                 enterInputRectId.day = date.getUTCDate()
                 enterInputRectId.month = date.getUTCMonth()
                 enterInputRectId.year = date.getUTCFullYear()
 
+                //get the values for the next day and set the UI element values
                 const isoDate = enterInputRectId.year + "-" + enterInputRectId.month + "-" + enterInputRectId.day
-
                 DB.getDataForDate(isoDate)
                 userInputDateTextId.text = enterInputRectId.month + "/" + enterInputRectId.day + "/" + enterInputRectId.year
                 radioGroupId.visible = false
@@ -281,6 +296,6 @@ Rectangle
             }
         }
 
-        textContent: "Next Day"
+
     }
 }

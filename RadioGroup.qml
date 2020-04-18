@@ -3,13 +3,14 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.3
 
-
+//column layout that contains all radio buttons
 ColumnLayout
 {
     anchors.left: emoticonsInputLayoutId.right
 
-
-    onVisibleChanged: {
+    //update the values of the radio buttons when the visibility of RadioGroup changes
+    onVisibleChanged:
+    {
         joyRadioButtonId.checked = userInputScreenId.joyCheckedVal
         happyRadioButtonId.checked = userInputScreenId.happyCheckedVal
         sadRadioButtonId.checked = userInputScreenId.sadCheckedVal
@@ -18,6 +19,7 @@ ColumnLayout
         angryRadioButtonId.checked = userInputScreenId.angryCheckedVal
     }
 
+    //returns a value for the radio button that is selected
     function getRadioButtonSelection()
     {
         if(joyRadioButtonId.checked === true)
@@ -36,6 +38,7 @@ ColumnLayout
             return 6
     }
 
+    //radio button for the joy emoticon
     RadioButton
     {
         id: joyRadioButtonId
@@ -43,6 +46,7 @@ ColumnLayout
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
         checked: userInputScreenId.joyCheckedVal
 
+        //create a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -61,7 +65,7 @@ ColumnLayout
         }
 
 
-
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {
@@ -74,12 +78,14 @@ ColumnLayout
         }
     }
 
+    //radio button for the happy emoticon
     RadioButton
     {
         id: happyRadioButtonId
 
         checked: userInputObjectId.happyCheckedVal
 
+        //creates a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -101,6 +107,7 @@ ColumnLayout
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
 
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {
@@ -113,11 +120,13 @@ ColumnLayout
         }
     }
 
+    //radio button for the sad emoticon
     RadioButton
     {
         id: sadRadioButtonId
         checked: userInputObjectId.sadCheckedVal
 
+        //creates a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -139,6 +148,7 @@ ColumnLayout
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
 
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {
@@ -151,11 +161,13 @@ ColumnLayout
         }
     }
 
+    //radio button for the worried emoticon
     RadioButton
     {
         id: worriedRadioButtonId
         checked: userInputObjectId.worriedCheckedVal
 
+        //creates a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -176,6 +188,7 @@ ColumnLayout
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
 
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {
@@ -188,11 +201,13 @@ ColumnLayout
         }
     }
 
+    //radio button for the fearful emoticon
     RadioButton
     {
         id: fearfulRadioButtonId
         checked: userInputObjectId.fearfulCheckedVal
 
+        //creates a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -213,6 +228,7 @@ ColumnLayout
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
 
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {
@@ -225,11 +241,13 @@ ColumnLayout
         }
     }
 
+    //radio button for the angry emoticon
     RadioButton
     {
         id: angryRadioButtonId
         checked: userInputObjectId.angryCheckedVal
 
+        //creates a style for the radio button that allows for resizing
         style: RadioButtonStyle {
                 indicator: Rectangle {
                         implicitWidth: emoticonsInputLayoutId.imageSize / 2
@@ -250,6 +268,7 @@ ColumnLayout
         Layout.topMargin: emoticonsInputLayoutId.imageSize / 2.5
         Layout.bottomMargin: emoticonsInputLayoutId.imageSize / 2
 
+        //sets the values of all other radio buttons to false when the radio button is selected
         onCheckedChanged: {
             if(checked === true)
             {

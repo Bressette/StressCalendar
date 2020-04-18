@@ -1,18 +1,21 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.4
 
-
+//ColumnLayout that holds the images of all emoticons
 ColumnLayout
 {
     id: emoticonsColumnId
     x: 0.02604 * graphSidebarId.width
     anchors.top: alignmentRect.bottom
 
+    //property that holds the imageSize that is used for every emoticon
     property int imageSize
-
+    //property that determines if the names of the emoticons are displayed
     property bool textEnabled
+    //property that determines the text size of the emoticon names
     property double textSize
 
+    //Image object for the joy emoticon
     Image
     {
         id: joyId
@@ -21,6 +24,7 @@ ColumnLayout
         Layout.preferredWidth: Layout.preferredHeight
     }
 
+    //Text object for the joy emoticon text
     Text
     {
         id: joyTextId
@@ -35,6 +39,7 @@ ColumnLayout
         styleColor: "black"
     }
 
+    //Image object for the happy emoticon
     Image
     {
         id: happyId
@@ -44,6 +49,7 @@ ColumnLayout
 
     }
 
+    //Text object for the happy emoticon text
     Text
     {
         id: happyTextId
@@ -57,6 +63,7 @@ ColumnLayout
         visible: textEnabled
     }
 
+    //Image object for the sad emoticon
     Image
     {
         id: sadId
@@ -65,6 +72,7 @@ ColumnLayout
         Layout.preferredWidth: Layout.preferredHeight
     }
 
+    //Text object for the sad emoticon
     Text
     {
         id: sadTextId
@@ -79,6 +87,7 @@ ColumnLayout
         styleColor: "white"
     }
 
+    //Image object for the worry emoticon
     Image
     {
         id: worryId
@@ -87,6 +96,7 @@ ColumnLayout
         Layout.preferredWidth: Layout.preferredHeight
     }
 
+    //Text object for the worry emoticon
     Text
     {
         id: worriedTextId
@@ -101,6 +111,7 @@ ColumnLayout
         styleColor: "black"
     }
 
+    //Image object for the fearful emoticon
     Image
     {
         id: fearfulId
@@ -109,6 +120,7 @@ ColumnLayout
         Layout.preferredWidth: Layout.preferredHeight
     }
 
+    //Text object for the fearful emoticon
     Text
     {
         id: fearfulTextId
@@ -123,6 +135,7 @@ ColumnLayout
         styleColor: "white"
     }
 
+    //Image object for the anger emoticon
     Image
     {
         id: angerId
@@ -131,6 +144,7 @@ ColumnLayout
         Layout.preferredWidth: Layout.preferredHeight
     }
 
+    //Text object for the anger emoticon
     Text
     {
         id: angryTextId

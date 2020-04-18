@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item
 {
 
+    //properties used to edit the width and text values of every graph bar
     property var joyBarWidth
     property var joyBarText
     property var happyBarWidth
@@ -16,11 +17,11 @@ Item
     property var angryBarWidth
     property var angryBarText
 
-    property double maxBarWidth : moodTitleId.implicitWidth / 2
-
+    //anchors the graph to the emoticons
     anchors.left: emoticonsCalendarLayoutId.right
     anchors.top: emoticonsCalendarLayoutId.top
 
+    //event used to update the graph values
     onVisibleChanged:
     {
         joyBarId.width = joyBarWidth
@@ -37,6 +38,7 @@ Item
         angryBarId.textContent = angryBarText
     }
 
+    //GraphBar for the joy emoticon
     GraphBar
     {
         id: joyBarId
@@ -47,6 +49,7 @@ Item
         anchors.topMargin: imageSize / 9
     }
 
+    //GraphBar for the happy emoticon
     GraphBar
     {
         id: happyBarId
@@ -57,6 +60,7 @@ Item
         anchors.topMargin: imageSize / 3.75
     }
 
+    //GraphBar for the sad emoticon
     GraphBar
     {
         id: sadBarId
@@ -67,6 +71,7 @@ Item
         anchors.topMargin: imageSize / 3.75
     }
 
+    //GraphBar for the worried emoticon
     GraphBar
     {
         id: worriedBarId
@@ -77,6 +82,7 @@ Item
         anchors.topMargin: imageSize / 3.75
     }
 
+    //GraphBar for the fearful emoticon
     GraphBar
     {
         id: fearfulBarId
@@ -87,6 +93,7 @@ Item
         anchors.topMargin: imageSize / 3.75
     }
 
+    //GraphBar for the angry emoticon
     GraphBar
     {
         id: angryBarId
