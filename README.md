@@ -1,5 +1,5 @@
 # Stress Calendar 
-A desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity. The software provides weekly feedback dependent on the data that the user entered.
+StressCalendar is a desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity for each day. The software provides feedback to the user dependent on the data that the user entered.
 
 # UI Mockups
 ### The main calendar view where the user can see monthly progress and transition to the user input view.
