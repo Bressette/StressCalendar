@@ -11,8 +11,8 @@ import "SetUIValues.js" as SetVals
 //window that displays a window that contains the rest of the UI elements
 Window {
     visible: true
-    width: 600
-    height: 600
+    width: 1280
+    height: 720
     title: qsTr("Calendar")
     id: rootId
 

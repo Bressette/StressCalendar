@@ -145,6 +145,33 @@ Rectangle
             font.pointSize: 10
         }
 
+        Text
+        {
+            id: changeFontTitleId
+            width: rootId.width / 15
+            height: rootId.height / 10
+            anchors.top: notesTextAreaId.bottom
+            anchors.topMargin: 5
+            anchors.left: notesTextAreaId.left
+            text: "Change Font Size"
+            font.pointSize: 24
+        }
+
+        TextField
+        {
+            id: changeFontTextFieldId
+            width: rootId.width / 15
+            height: rootId.height / 15
+            anchors.top: changeFontTitleId.top
+            x: changeFontTitleId.x + changeFontTextFieldId.implicitWidth - 50
+            font.pointSize: 24
+            text: notesTextAreaId.font.pointSize
+
+            onTextChanged:
+            {
+                notesTextAreaId.font.pointSize = parseInt(text)
+            }
+        }
 
 
 
