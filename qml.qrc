@@ -18,5 +18,6 @@
         <file>GraphBar.qml</file>
         <file>EmoticonsGraph.qml</file>
         <file>DateUtils.qml</file>
+        <file>PhysicalActivityGraph.qml</file>
     </qresource>
 </RCC>
