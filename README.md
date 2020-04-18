@@ -1,5 +1,5 @@
 # Stress Calendar 
-StressCalendar is a desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity for each day. The software provides feedback to the user dependent on the data that the user entered.
+StressCalendar is a desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity for each day. The software provides feedback to the user dependent on the data that the user entered. The program is written using QT Quick and uses QML to display the UI and Javascript to interface with an SQLite database and perform back-end logic.
 
 # UI Mockups
 ### The main calendar view where the user can see monthly progress and transition to the user input view.
