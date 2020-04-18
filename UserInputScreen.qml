@@ -166,6 +166,7 @@ Rectangle
             x: changeFontTitleId.x + changeFontTextFieldId.implicitWidth - 50
             font.pointSize: 24
             text: notesTextAreaId.font.pointSize
+            validator: IntValidator {bottom: 0;}
 
             onTextChanged:
             {
