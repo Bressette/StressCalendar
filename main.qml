@@ -7,6 +7,7 @@ import QtQuick.LocalStorage 2.12
 import "DatabaseFunctions.js" as DB
 import "SetUIValues.js" as SetVals
 
+// This code was developed solely by Johnathan Bressette and the repository is located at https://github.com/Bressette/StressCalendar
 
 //window that displays a window that contains the rest of the UI elements
 Window {
@@ -187,6 +188,8 @@ Window {
                 SetVals.setPhysicalActivityValues()
                 emoticonsGraphId.visible = false
                 emoticonsGraphId.visible = true
+                physicalActivityGraphId.visible = false
+                physicalActivityGraphId.visible = true
 
                 enterInputRectId.visible = true
             }
