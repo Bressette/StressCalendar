@@ -35,7 +35,7 @@ Window {
             id: graphSidebarId
             width: rootId.width * (2/10)
             height: rootId.height
-            color: "#1aff01"
+            color: "white"
 
             //text used to title the mood monthly stats and contains text "Monthly Progress"
             Text {
