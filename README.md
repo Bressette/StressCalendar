@@ -10,10 +10,10 @@ StressCalendar is a desktop application that displays a calendar that lets users
 ![WeeklyFeedbackScreen](https://github.com/Bressette/SoftwareEngineeringProject/blob/master/UI%20Mockups/Calendar_Feedback_Screen.png)
 # Program Screenshots
 ### The main calendar view where the user can see monthly progress and transition to the user input view.
-![MainCalendarScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/CalendarScreen.PNG)
+![MainCalendarScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/CalendarScreen1.PNG)
 ### The user input view where the user can enter their daily mood, amount of physical activity and general notes.
 ![UserInputScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/UserInputScreen.PNG)
 ### Popup window that lets the user edit data for the day or view personal feedback
-![DayPopupScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/DayPopup.PNG)
+![DayPopupScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/DayPopup1.PNG)
 ### Recent feedback screen that provides feedback to the user based on recent recorded data
 ![RecentFeedbackScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/RecentFeedback.PNG)
