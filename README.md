@@ -1,5 +1,5 @@
 # Stress Calendar 
-StressCalendar is a desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity for each day. The software provides feedback to the user dependent on the data that the user entered. The program is written using QT Quick and uses QML to display the UI and Javascript to interface with an SQLite database and perform back-end logic.
+StressCalendar is a desktop application that displays a calendar that lets users input their daily mood, notes, and amount of physical activity for each day. The program is written using QT Quick and uses QML to display the UI and Javascript to interface with an SQLite database and perform back-end logic.
 
 # UI Mockups
 ### The main calendar view where the user can see monthly progress and transition to the user input view.
@@ -13,7 +13,6 @@ StressCalendar is a desktop application that displays a calendar that lets users
 ![MainCalendarScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/CalendarScreen1.PNG)
 ### The user input view where the user can enter their daily mood, amount of physical activity and general notes.
 ![UserInputScreenScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/UserInputScreen.PNG)
-### Popup window that lets the user edit data for the day or view personal feedback
+### Popup window that lets the user edit data for the day
 ![DayPopupScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/DayPopup1.PNG)
-### Recent feedback screen that provides feedback to the user based on recent recorded data
-![RecentFeedbackScreenshot](https://github.com/Bressette/StressCalendar/blob/master/screenshots/RecentFeedback.PNG)
+
