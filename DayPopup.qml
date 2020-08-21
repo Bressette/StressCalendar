@@ -96,54 +96,54 @@ Rectangle
 
 
         //rectangle object used to create the recent feedback button
-        Rectangle
-        {
-            id: recentFeedbackButtonId
-            width: parent.width * 0.75
-            height: parent.height / 5
+//        Rectangle
+//        {
+//            id: recentFeedbackButtonId
+//            width: parent.width * 0.75
+//            height: parent.height / 5
 
-            anchors.top: editButtonId.bottom
-            anchors.topMargin: 5
-            anchors.left: editButtonId.left
+//            anchors.top: editButtonId.bottom
+//            anchors.topMargin: 5
+//            anchors.left: editButtonId.left
 
-            color: "white"
-            border.color: "black"
-            border.width: 5
+//            color: "white"
+//            border.color: "black"
+//            border.width: 5
 
-            //text object that contains the text "Recent Feedback" and is fit to its parent
-            Text
-            {
-                id: recentFeedbackTextId
-                width: parent.width
-                height: parent.height
-                text: "Recent Feedback"
-                anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+//            //text object that contains the text "Recent Feedback" and is fit to its parent
+//            Text
+//            {
+//                id: recentFeedbackTextId
+//                width: parent.width
+//                height: parent.height
+//                text: "Recent Feedback"
+//                anchors.centerIn: parent
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
 
-                //a maximum point size and a minimum point size is defined when the fontSizeMode is Fit
-                //where the actual point size will be the size that fits the parent element
-                font.pointSize: 100
-                minimumPointSize: 10
-                fontSizeMode: Text.HorizontalFit
-            }
+//                //a maximum point size and a minimum point size is defined when the fontSizeMode is Fit
+//                //where the actual point size will be the size that fits the parent element
+//                font.pointSize: 100
+//                minimumPointSize: 10
+//                fontSizeMode: Text.HorizontalFit
+//            }
 
-            //MouseArea that represents the recent feedback button
-            MouseArea
-            {
-                id: recentFeedbackButtonMouseAreaId
-                anchors.fill: parent
+//            //MouseArea that represents the recent feedback button
+//            MouseArea
+//            {
+//                id: recentFeedbackButtonMouseAreaId
+//                anchors.fill: parent
 
-                onClicked:
-                {
-                    //sets the weekly feedback values
-                    SetVals.setWeeklyFeedback()
-                    //changes visibility so that the recent feedback popup screen is displayed
-                    outsideRecentFeedbackId.visible = true
-                    enterInputRectId.visible = false
-                }
-            }
-        }
+//                onClicked:
+//                {
+//                    //sets the weekly feedback values
+//                    SetVals.setWeeklyFeedback()
+//                    //changes visibility so that the recent feedback popup screen is displayed
+//                    outsideRecentFeedbackId.visible = true
+//                    enterInputRectId.visible = false
+//                }
+//            }
+//        }
 
 
 
